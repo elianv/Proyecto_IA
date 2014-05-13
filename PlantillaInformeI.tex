@@ -9,7 +9,7 @@
 
 
 \begin{document}
-\title{Inteligencia Artificial \\ \begin{Large}Estado del Arte: Vehicle Routing Problem\end{Large}}
+\title{Inteligencia Artificial \\ \begin{Large}Estado del Arte: Vehicle Routing Problem \emph{(VRP)}\end{Large}}
 \author{Elian Vallejos}
 \date{\today}
 \maketitle
@@ -38,35 +38,103 @@ Lo que se pretende presenta en el siguiente documento, es el problema \emph{Vehi
 \newline
 Este problema es una variante del conocido \emph{Traveling Salesmen Problem (TSP)}, lo que aqu\'i se quiere realizar,
 es satisfacer la demanda de los clientes, entregando se mercader\'ia, minimizando los costos asociados a las rutas de entrega. Para 
-esto se cuenta con una flota de vehiculos, los que son todos homogeneos. Adem\'as de realizar la entrega, los vehiculos deben volver 
-al punto de origen, o sea a su deposito. Lo m\'as importante en esta problematica es poder satisfacer la necesidad de los clientes,
-teniendo en cuenta los recursos con los cuales se cuenta, dado que no hay muchas varibles en el problema, no es necesario ahondar m\'as
+esto se cuenta con una flota de veh\'iculos, los que son todos homog\'eneos. Adem\'as de realizar la entrega, los veh\'iculos deben volver 
+al punto de origen, o sea a su deposito. Lo m\'as importante en esta problem\'atica es poder satisfacer la necesidad de los clientes,
+teniendo en cuenta los recursos con los cuales se cuenta, dado que no hay muchas variables en el problema, no es necesario ahondar m\'as
 en esto.
-A continuaci\'on se procedera a definir el problema y buscar un m\'etodo que logre obtener una soluci\'on 
+A continuaci\'on se proceder\'a a definir el problema y buscar un m\'etodo que logre obtener una soluci\'on 
 mas cercana al \'optimo. Para esto, se presentara un planteamiento formal, estado del arte del problema, posibles m\'etodos 
-de soluci\'on y descripci\'on del modelo matem\'atico elegido.
+de soluci\'on y descripci\'on del modelo matem\'atico elegido.
+
 \end{abstract}
 
 \section{Introducci\'on}
 Una explicaci\'on breve del contenido del informe. Es decir, detalla: Prop\'osito, Estructura del Documento, Descripci\'on (muy breve) del Problema y Motivaci\'on.
 
 \section{Definici\'on del Problema}
-Explicaci\'on del problema que se va a estudiar, en qu\'e consiste, cuales son sus variables, restricciones y objetivos de manera general.
-Variantes m\'as conocidas que existen.
+
+
+
+\subsection{Traveling Salesman Problem (TSP)}
+
+El problema del vendedor viajero es uno de los problemas m\'as estudiados, 
+este problema responde a la pregunta, que dada una lista de ciudades 
+junto con las distancias de esta, ?` Cual es la ruta mas corta posible 
+para visitar cada ciudad exactamente una vez, y regresar a la ciudad de origen?. 
+Este es un problema NP-duro ~\cite{TSP} adem\'as de ser netamente combinatorio. 
+Porque mencionar este problema, dado que se puede decir que
+es el problema madre para \emph{VRP}, pr\'acticamente es el mismo salvo que para el 
+\emph{TSP} solo es un veh\'iculo, por ende se puede encontrar mucha m\'as literatura para 
+la resoluci\'on de este problema, no se ha ahondara m\'as dado que abarca demasiado y solo 
+es \'util su menci\'on y en que consiste.
+\newline
+Del \emph{TSP} se desprenden adem\'as variantes a este problema, que en este caso conviene 
+mencionarlos igualmente dada su similitud con el \emph{VRP} ~\cite{TSP}
+
+\begin{itemize}
+ \item Traveling Salesman Problem with Backhauls (TSPB)
+ \item Traveling Salesman Problem with Time Windows (TSPTW)
+ \item Multiple Traveling Salesman Problem (MTSP)
+\end{itemize}
+
+En general todas variaciones anteriores se aplican de una manera al \emph{VRP}, dado que el \emph{TSP} no es lo que se quiere explicar, no hay necesidad de
+detallar mas las variantes, de este.
+
+\subsection{Capacitated Vehicle Routing Problem (CVRP)}
+Esta variaci\'on al igual que el problema estudiado es una flota de veh\'iculos de reparto con una capacidad uniforme, los cuales 
+tienen que atender la demanda conocida de cliente, en distintos puntos geogr\'aficos, satisfaciendo la restricci\'on de que las rutas descritas tienen
+que ser a un m\'inimo costo tal cual lo har\'ia el \emph{VRP}, con la salvedad de que la capacidad de cada veh\'iculo es 
+uniforme de una sola mercader\'ia~\cite{CVRP}.
+\newline
+El objetivo de esta variaci\'on del problema es que se quiere reducir al m\'inimo posible la flota de los veh\'iculos de reparto, adem\'as 
+de la suma de los tiempos de viaje, considerando tambi\'en de que la capacidad de cada veh\'iculo no puede ser excedida por la ruta a tomar.
+Su formulaci\'on es la misma que para el \emph{VRP} agregando la restricci\'on de que la demanda total de los clientes en una misma ruta
+no debe sobrepasar la capacidad del veh\'iculo asignado a la misma.
+
+
+\subsection{Distance Constrained Vehicle Routing Problem (DCVRP)}
+
+Esta variante del problema radica en que a diferencia del \emph{Capacitated Vehicle Routing Problem (CVRP)} aqu\'i la restricci\'on de la capacidad
+del veh\'iculo es cambiada por la distancia ~\cite{TSP} en que se tiene que hacer el recorrido, dado que existe un limite m\'aximo el cual 
+tiene que tener la ruta. Sigue teniendo m\'ultiples veh\'iculos, punto de salida y final el mismo, etc.
+Aqu\'i usualmente el costo se relaciona directamente con el viaje realizado o con el tiempo de este.
+
+
+\subsection{Vehicle Routing Problem with Backhauls (VRPB)}
+
+La variante \emph{VRPB} tambi\'en conocida como linehault-backhault problem, tiene la particularidad que un cliente, puede estar satisfecho o no
+con el producto que se le entrega, dada esta premisa, este podr\'a devolver o no el producto al veh\'iculo repartidor ~\cite{Prosser93Hybrid}, 
+dada esta problem\'atica
+es que se incorporan como restricciones el contenedor del veh\'iculo como algo dimensional, ya que es necesario saber la capacidad 
+de este adem\'as 
+de si es necesario reordenar la carga, para as\'i poder llevar todo nuevamente al deposito ~\cite{Prosser93Hybrid}, sin que el veh\'iculo se quede sin capacidad en alg\'un 
+momento.
+
+\subsection{Vehicle Routing Problem with Time Windows (VRPTW)}
+
+El \emph{VRPTW} se diferencia con los antecesores en que aqu\'i existe un periodo de tiempo en el cual el veh\'iculo debe iniciar el recorrido para
+cada cliente, para as\'i llegar sin problemas en el tiempo esperado por el cliente ~\cite{journals/eor/AziGP07}.
+Esta variante adem\'as toma en consideraci\'on, de que si el veh\'iculo llega antes del tiempo estimado, debe esperar un tiempo t para que empiece
+nuevamente el servicio, de manera que los plazos se cumplan cabalmente.
+
+\subsection{Vehicle Routing Problem with Pickup and Delivery (VRPPD)}
+
+Aqu\'i lo que se modela es que cada cliente pide una cierta cantidad de productos, los cuales tienen que ser recogidos en el almac\'en, para luego ser
+llevados por el veh\'iculo hasta el cliente. Cada veh\'iculo tiene una capacidad de carga, por lo que los productos deben caber dentro del veh\'iculo
+para as\'i poder ser entregados al cliente, aqu\'i el problema es mucho mas realista en algunos puntos, al igual que sus antecesores se debe considerar 
+la ruta, los clientes, y adem\'as poder minimizar los costos, ya sea ruta mas corta, cantidad de veh\'iculos empleados, para as\'i poder satisfacer 
+la demanda de los clientes.
+~\cite{EilamTzoreff2002193}.
 
 \section{Estado del Arte}
-Lo m\'as importante que se ha hecho hasta ahora con relaci\'on al problema. Deber\'ia responder preguntas como las siguientes:
-?`cuando surge el problema?, ?`qu\'e m\'etodos se han usado para resolverlo?, ?`cuales son los mejores algoritmos que se han creado hasta
-la fecha?, ?`qu\'e representaciones han tenido los mejores resultados?, ?`cu\'al es la tendencia actual? tipos de movimientos,
-heur\'isticas, m\'etodos completos, h\'ibridos, etc... Puede incluir gr\'aficos comparativos, o explicativos.\\
-La informaci\'on que describen en este punto se basa en los estudios realizados con antelaci\'on respecto al tema.
-Dichos estudios se citan de manera que quien lea su estudio pueda tambi\'en
- acceder a las referencias que usted revis\'o. Las citas se realizan mediante el comando \verb+\cite{ }+.
-Por ejemplo, para hacer referencia al art\'iculo de algoritmos h\'ibridos para problemas de satisfacci\'on 
- de restricciones que ley\'o para el primer certamen~\cite{Prosser93Hybrid}.
 
 \section{Modelo Matem\'atico}
 Uno o m\'as modelos matem\'aticos para el problema, idealmente indicando el espacio de b\'usqueda para cada uno.
+\subsection{Par\'ametros}
+\subsection{Variables}
+\subsection{Restricciones}
+\subsection{Funci\'on objetivo}
+\subsection{Espacio de B\'usqueda}
 
 \section{Conclusiones}
 Conclusiones RELEVANTES del estudio realizado.
