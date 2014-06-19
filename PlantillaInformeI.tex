@@ -11,7 +11,7 @@
 \begin{document}
 \title{Inteligencia Artificial \\ \begin{Large}Estado del Arte: Vehicle Routing Problem \emph{(VRP)}\end{Large}}
 \author{Elian Vallejos}
-\date{\today}
+\date{13 de mayo de 2014}
 \maketitle
 
 
@@ -39,7 +39,7 @@ Lo que se pretende presenta en el siguiente documento, es el problema \emph{Vehi
 Este problema es una variante del conocido \emph{Traveling Salesmen Problem (TSP)}, lo que aqu\'i se quiere realizar,
 es satisfacer la demanda de los clientes, entregando se mercader\'ia, minimizando los costos asociados a las rutas de entrega. Para 
 esto se cuenta con una flota de veh\'iculos, los que son todos homog\'eneos. Adem\'as de realizar la entrega, los veh\'iculos deben volver 
-al punto de origen, o sea a su deposito. Lo m\'as importante en esta problem\'atica es poder satisfacer la necesidad de los clientes,
+al punto de origen, o sea a su dep\'osito. Lo m\'as importante en esta problem\'atica es poder satisfacer la necesidad de los clientes,
 teniendo en cuenta los recursos con los cuales se cuenta, dado que no hay muchas variables en el problema, no es necesario ahondar m\'as
 en esto.
 A continuaci\'on se proceder\'a a definir el problema y buscar un m\'etodo que logre obtener una soluci\'on 
@@ -47,12 +47,56 @@ mas cercana al \'optimo. Para esto, se presentara un planteamiento formal, estad
 de soluci\'on y descripci\'on del modelo matem\'atico elegido.
 
 \end{abstract}
+\newpage
 
 \section{Introducci\'on}
-Una explicaci\'on breve del contenido del informe. Es decir, detalla: Prop\'osito, Estructura del Documento, Descripci\'on (muy breve) del Problema y Motivaci\'on.
+
+\emph{Vehicle Routing Problem (VRP)}, es un problema actual que comprenden todas aquellas empresas de reparto, La tarea de organizar las flotas
+de veh\'iculos. La tarea de minimizar los costos asociados a las entregas, sin desmerecer los tiempos y satisfacci\'on de los clientes, es un desaf\'io
+complejo para la log\'istica y una problem\'atica dif\'icilmente de resolver.
+\newline
+Antes de ir m\'as alla, cabe destacar de que este es un problema que nace del TSP (\emph{Traveling Salesman Problem}), dado que este es el problema
+m\'as simple de abordar lo que se presentara aqu\'i es una variable de este, pero en sus principios y bases son iguales~\cite{TSP}.
+\newline
+Actualmente el mejoramiento y la optimizaci\'on en los procesos de distribuci\'on trae consigo grandes ahorros, dado que antiguamente no era una
+problem\'atica tan compleja como es en los d\'ias de hoy. El problema ha ido evolucionando hasta encontrar las distintas variantes, inclusive la 
+mezcla de cada una de ellas conlleva una aproximaci\'on a lo que es el mundo real de hoy en d\'ia. Para comprender el significado de esto,
+es que a trav\'es de los distintos temas abarcados en este Paper, se conocer\'an las variables que existen, junto con su explicaci\'on y que diferencia
+tienen entre ellos. Se entregara una visi\'on actual del problema, cuales son los algoritmos que se utilizan actualmente~\cite{Prosser93Hybrid}, no se explican t\'ecnicas 
+completas, dado que estas son utilizadas en plenitud en la actualidad, dado el tiempo de computo necesario para resolver, es por esto que se usan 
+t\'ecnicas incompletas de resoluci\'on, para as\'i tener en un tiempo aceptable, soluciones de buena calidad.
+Como se trata de un problema matem\'atico, se dar\'a a conocer su modelo, adem\'as de las restricci\'on que este implica, su funci\'on de evaluaci\'on,
+y las constantes o par\'ametros que se tienen que considerar.
+\newline
+Algo para tener en cuenta, es que la motivaci\'on que persigue esto, es la necesidad de comprender mas en profundidad y con problemas reales, la 
+problem\'atica que se enfrenta al implementar soluciones para esta clase de problemas y tener un contraste entre lo que se aprende en un aula, junto
+con lo que se aprende en la investigaci\'on.
 
 \section{Definici\'on del Problema}
 
+El problema \emph{Vehicle Routing Problem} nace de la necesidad de tener el manejo efectivo de la provisi\'on de bienes o servicios, ya sea en la
+o retiro de estos en distintos puntos geogr\'aficos, dada el inmenso crecimiento de las ciudades y de la poblaci\'on se hacia imposible generar
+rutas \'optimas en tiempos lo suficientemente acotados, como para tener un mejor manejo de los recursos disponibles. Se ha demostrado que de acuerdo
+aplicaciones del mundo real que una buena planeaci\'on de los procesos de distribuci\'on genera ahorros del 5\% al 20\% en los costos de transporte
+global.
+\newline
+El problema \emph{VRP} es un problema cl\'asico de optimizaci\'on combinatoria con m\'ultiples aplicaciones.
+Este consiste en general en lo siguiente:
+\begin{itemize}
+ \item Un dep\'osito central
+ \item Clientes que requieren que se les entregue productos, los cuales tienen cierta demanda.
+ \item Una flota de veh\'iculos disponibles para realizar las entregas.
+ \item Se requiere la planeaci\'on para la entrega de productos a los consumidores.
+ \item Se necesita m\'inimizar los costos de transporte para la entrega de los productos, sean los costos: distancia de cada circuito, n\'umero de
+ veh\'iculos utilizados, tiempo de transporte, etc.
+ \'item Generar las rutas necesarias para la entrega de todos los productos a los clientes.
+\end{itemize}
+
+Para describir los tour que se generan para cada veh\'iculo, se describen mediante grafos, cada nodo es un cliente y los arcos son el camino que 
+tiene asociado cada tramo. Adem\'as cada arco tiene asociado un costo.
+\newline
+Existen m\'ultiples variables a este problema, a continuaci\'on se describen, cabe destacar que este problema dada su complejidad es mas d\'ificil
+que el TSP que es muy parecido
 
 
 \subsection{Traveling Salesman Problem (TSP)}
@@ -107,7 +151,7 @@ con el producto que se le entrega, dada esta premisa, este podr\'a devolver o no
 dada esta problem\'atica
 es que se incorporan como restricciones el contenedor del veh\'iculo como algo dimensional, ya que es necesario saber la capacidad 
 de este adem\'as 
-de si es necesario reordenar la carga, para as\'i poder llevar todo nuevamente al deposito ~\cite{Prosser93Hybrid}, sin que el veh\'iculo se quede sin capacidad en alg\'un 
+de si es necesario reordenar la carga, para as\'i poder llevar todo nuevamente al dep\'osito ~\cite{Prosser93Hybrid}, sin que el veh\'iculo se quede sin capacidad en alg\'un 
 momento.
 
 \subsection{Vehicle Routing Problem with Time Windows (VRPTW)}
@@ -115,7 +159,8 @@ momento.
 El \emph{VRPTW} se diferencia con los antecesores en que aqu\'i existe un periodo de tiempo en el cual el veh\'iculo debe iniciar el recorrido para
 cada cliente, para as\'i llegar sin problemas en el tiempo esperado por el cliente ~\cite{journals/eor/AziGP07}.
 Esta variante adem\'as toma en consideraci\'on, de que si el veh\'iculo llega antes del tiempo estimado, debe esperar un tiempo t para que empiece
-nuevamente el servicio, de manera que los plazos se cumplan cabalmente.
+nuevamente el servicio, de manera que los plazos se cumplan cabalmente. Unas de sus aplicaciones son para el encaminamiento del autob\'us escolar y
+la programaci\'on de lineas a\'ereas.
 
 \subsection{Vehicle Routing Problem with Pickup and Delivery (VRPPD)}
 
@@ -128,20 +173,132 @@ la demanda de los clientes.
 
 \section{Estado del Arte}
 
+EL problema \emph{VRP} en un problema NP-dif\'icil , esto quiere decir que es un problema que intuitivamente es al menos tan dif\'icil como cualquier 
+problema NP.el \emph{VRP}, es una variante mas compleja del TSP.
+\newline
+Actualmente la literatura se encuentra mucha informaci\'on de este problema, siendo las variantes expuestas en la \emph{Definici\'on del Problema }, 
+las mas ocurrentes, dado que se centran en la problem\'atica de hoy en d\'ia, en cuanto a la entrega de productos mediante la v\'ia de 
+medios de transporte.
+A continuaci\'on se presentan algoritmos mas actuales los cuales tratan de encontrar soluci\'on a estas problem\'aticas:
+\subsection{Algoritmo Gen\'etico}
+Los Algoritmos gen\'eticos, son m\'etodos adaptativos que se basan en el proceso gen\'entico de los organismos vivos, que se usan para resolver 
+problemas de b\'usqueda y optimizaci\'on. Estos tratan de emular la evoluci\'on natural, actuando con el principio de sobre vivencia del mas apto, 
+mejorando as\'i el desempe\~no de individuos que sean mejores que sus antepasados. La aptitud de los individuos se mide a trav\'es de una funci\'on de
+evaluaci\'on o funci\'on de aptitud, para que ver que tan aptos son. Se genera una poblaci\'on inicial, los cuales compiten por la oportunidad de
+reproducirse, pasando sus aptitudes a la siguiente generaci\'on. Para la reproducci\'on el algoritmo utiliza ciertos operadores, los cuales entregan 
+una mejor opci\'on para evolucionar en una buena soluci\'on.
+\begin{itemize}
+ \item Selecci\'on: Se busca dentro de la poblaci\'on o se seleccionan \emph{X} cantidad de individuos, y se ve cuales son los mas aptos para ir al 
+ siguiente paso del algoritmo, el valor que dice si son aptos o no, es la funci\'on de aptitud el cual es la m\'etrica para saber si 
+ son seleccionados o no.
+ \item Crossover: Aqu\'i mediante una probabilidad, se ve si los individuos previamente seleccionados son cruzados entre si, para dar origen a sus,
+ hijos existen varios operadores de cruce, los cuales pueden ser, cruzamiento en un punto, dos puntos, etc, esto depender\'a del 
+ tipo de implementaci\'on utilizada. Dando as\'i mejores individuos, que heredaran las caracter\'isticas de sus padres.
+ \item Mutaci\'on: Este operador introduce un cambio aleatorio en los individuos, la gracia de este operador, es que entrega nueva informaci\'on a la 
+ poblaci\'on, por ende permite mejorar y dar saltos de un lugar de b\'usqueda a otro. Para la utilizaci\'on de este operador, se usa un probabilidad 
+ la cual dir\'a si el operador se usara en el individuo o no.
+\end{itemize}
+\subsection{Hill Climbing}
+El algoritmo Hill Climbing se basa en la b\'usqueda de profundidad, lo que se hace es que en cada paso se mejora la soluci\'on encontrada, de manera 
+de incrementar la posibilidad de encontrar la cima.
+El algoritmo se basa los siguientes pasos\cite{HC}:
+\begin{itemize}
+ \item Construir una soluci\'on inicial, que cumpla con las restricciones del problema
+ \item Tomar la soluci\'on inicial o actual y construir un vecindario a partir de un movimiento.
+ \item Evaluar el vecindario generado a partir de la soluci\'on actual y el movimiento, para luego tomar el mejor de estos
+ \item Repetir el proceso hasta no tener mejores soluciones.
+\end{itemize}
+Para evaluar la calidad de las soluciones generadas se utiliza una funci\'on de evaluaci\'on.
+Existen varias variaciones del algoritmo, pero en general esta es la mas sencilla y es la base para los otros.
+
+\subsection{Tabu Search}
+El Tabu Search es muy parecido al m\'etodo anterior, con la salvedad de que continue una lista tab\'u, la cual impide que el movimiento que genero el
+vecino de mejor calidad sea utilizado en la siguiente iteraci\'on, asi impide que se generen ciclos, los cuales dejar\'ian estancado al algoritmo.
+\newline
+El largo de la lista permite la intensificaci\'on y la diversificaci\'on.
+\subsection{Simulated Annealing}
+Al igual que el algoritmo Gen\'etico, este m\'etodo mejora las soluciones con el tiempo. Su nombre proviene del proceso por el cual se enfr\'ian
+los metales, lentamente, para obtener una estructura molecular cohesionada y resistente, dado que mediante imitando este proceso se desea encontrar
+soluciones.
+\newline
+Se determina una soluci\'on inicial y se permite un grado alto de movimiento por el espacio de las soluciones, buscando por todo el espacio de 
+b\'usqueda. A medida que avanza el proceso, se van permitiendo movimientos cada vez m\'as peque\~nos, hasta que se converge a una soluci\'on final. 
+Esto es, que los movimientos iniciales son grandes y dirigidos a zonas donde la funci\'on objetivo es alta, y a medida que se converge, 
+dichos movimientos son m\'as acotados.
+Para esto se necesita ~\cite{whitepaper}:
+\begin{itemize}
+ \item Una descripci\'on de las soluciones posibles.
+ \item Un generador de cambios aleatorios entre las soluciones.
+ \item Una funci\'on objetivo para las soluciones.
+ \item Un par\'ametro de control T y una asignaci\'on de enfriamiento que describe como var\'ian los par\'ametros con el tiempo.
+\end{itemize}
+
+En primer lugar, se debe contar con una soluci\'on inicial, sobre la cual se aplicar\'an ciertos movimientos que generar\'an un vecindario 
+de soluciones, las cuales ser\'an comparadas con la soluci\'on inicial, y si alguna presenta una mejora y en base a una probabilidad, 
+reemplazar\'a la soluci\'on inicial y el proceso se repite. Esto tantas veces como el hardware logre en un tiempo determinado.
+
 \section{Modelo Matem\'atico}
-Uno o m\'as modelos matem\'aticos para el problema, idealmente indicando el espacio de b\'usqueda para cada uno.
+La formulaci\'on aqu\'i presentada se centra en programaci\'on binaria.~\cite{RUTEO}
+
 \subsection{Par\'ametros}
+
+\begin{itemize}
+ \item G = (V,A), grafo completo no dirigido.
+ \item $V$ $=$ $\{v_{0},v_{1},v_{2},...,v_{n}\}$ Conjunto de nodos, $v_{0}$ es el dep\'osito
+ \item $A$ $=$ $\{(i,j)$ $:$ $i,j$ $\in$ $V$, $i\neq j\}$ Conjunto de Aristas.
+ \item $d_{i}$ $=$ demanda del nodo i.
+ \item $k$ N\'umero de veh\'iculos disponibles.
+ \item $Q$ capacidad de los veh\'iculos
+\end{itemize}
 \subsection{Variables}
+Se usara una variable binaria para las decisiones 
+\begin{center}
+$X_{i,j}$ = \begin{cases} 1, & \text{si la soluci\'on utiliza el arco(\emph{i,j})} \\ 0 & \text{si no} \end{cases}
+\end{center}
+
 \subsection{Restricciones}
+
+\begin{align}
+ &\displaystyle\sum_{i \in V}X_{ij} = 1, \forall j \in V_{0} \\
+ &\displaystyle\sum_{j \in V}X_{ij} = 1, \forall i \in V_{0} \\
+ &\displaystyle\sum_{i \in V}X_{i0} = k \\
+ &\displaystyle\sum_{i \in V}X_{0j} = k \\
+ &\displaystyle\sum_{i \not\in S}\sum_{j \in S}X_{xi} \geq r(S), \forall S \subset V_{0}, S \neq \Phi  \\
+ &X_{ij} \in {0,1}, \forall i,j \in V
+\end{align}
+
+\begin{enumerate}
+ \item Las restricciones (1) y (2) son para que no se repitan los arcos en las soluciones.
+ \item Las restricciones (3) y (4) son para que entren y salgan la misma cantidad de veh\'iculos al deposito.
+ \item La restricci\'on (5) no permite la existencia de substour
+ \item r(S) es el n\'umero m\'inimo de veh\'iculos necesarios para satisfacer la demanda de S
+ 
+ 
+\end{enumerate}
+
 \subsection{Funci\'on objetivo}
-\subsection{Espacio de B\'usqueda}
+
+\begin{center}
+$Min$ $\displaystyle\sum_{i \in V}\sum_{j \in V} C_{j,i}*X_{j,i}$
+\end{center}
+\begin{itemize}
+ \item Lo que se quiere es minimizar los costos asociados a los caminos hechos.
+\end{itemize}
+
 
 \section{Conclusiones}
-Conclusiones RELEVANTES del estudio realizado.
+\begin{itemize}
+ \item El problema de \emph{Vehicle Routing Problem}, es una problem\'atica actual de la industria, por lo que encontrar soluciones acorde 
+ a las necesidades de los clientes y proveedores, no es una tarea f\'acil, inclusive dada la complejidad que este tipo de problemas puede tener,
+ \item Dada su similitud con el \emph{TSP}, el modelo matem\'atico que se presenta es muy parecido, con lo que no hay problema entre la 
+ relaci\'on establecida con anterioridad, es por esta raz\'on que el modelo descrito es acorde al problema y relaciona ambos problemas.
+ \item Dada la complejidad del problema, se puede encontrar amplia literatura acerca de este, sobre todo algoritmos relativamente nuevos, dado que
+ es un problema muy complejo de resolver, no se utilizan t\'ecnicas completas en la actualidad, dado que se necesitan buenas soluciones en tiempos 
+ acotados.
+ \end{itemize}
+
 
 \section{Bibliograf\'ia}
-Indicando toda la informaci\'on necesaria de acuerdo al tipo de documento revisado. Todas las referencias deben ser 
-citadas en el documento.
 \bibliographystyle{plain}
 \bibliography{Referencias}
 
