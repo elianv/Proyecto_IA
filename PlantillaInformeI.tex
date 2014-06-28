@@ -63,7 +63,7 @@ problem\'atica tan compleja como es en los d\'ias de hoy. El problema ha ido evo
 mezcla de cada una de ellas conlleva una aproximaci\'on a lo que es el mundo real de hoy en d\'ia. Para comprender el significado de esto,
 es que a trav\'es de los distintos temas abarcados en este Paper, se conocer\'an las variables que existen, junto con su explicaci\'on y que diferencia
 tienen entre ellos. Se entregara una visi\'on actual del problema, cuales son los algoritmos que se utilizan actualmente~\cite{Prosser93Hybrid}, no se explican t\'ecnicas 
-completas, dado que estas son utilizadas en plenitud en la actualidad, dado el tiempo de computo necesario para resolver, es por esto que se usan 
+completas, dado que estas no son utilizadas en plenitud en la actualidad debido al tiempo de computo que necesitan para resolver, es por esto que se usan 
 t\'ecnicas incompletas de resoluci\'on, para as\'i tener en un tiempo aceptable, soluciones de buena calidad.
 Como se trata de un problema matem\'atico, se dar\'a a conocer su modelo, adem\'as de las restricci\'on que este implica, su funci\'on de evaluaci\'on,
 y las constantes o par\'ametros que se tienen que considerar.
@@ -104,7 +104,7 @@ que el TSP que es muy parecido
 El problema del vendedor viajero es uno de los problemas m\'as estudiados, 
 este problema responde a la pregunta, que dada una lista de ciudades 
 junto con las distancias de esta, ?` Cual es la ruta mas corta posible 
-para visitar cada ciudad exactamente una vez, y regresar a la ciudad de origen?. 
+para visitar cada ciudad exacedemos con elogios solamente! es hora de dar el gran salttamente una vez, y regresar a la ciudad de origen?. 
 Este es un problema NP-duro ~\cite{TSP} adem\'as de ser netamente combinatorio. 
 Porque mencionar este problema, dado que se puede decir que
 es el problema madre para \emph{VRP}, pr\'acticamente es el mismo salvo que para el 
@@ -285,6 +285,25 @@ $Min$ $\displaystyle\sum_{i \in V}\sum_{j \in V} C_{j,i}*X_{j,i}$
  \item Lo que se quiere es minimizar los costos asociados a los caminos hechos.
 \end{itemize}
 
+\section{Representaci\'on}
+Representaci\'on matem\'atica y estructura de datos que se usa (arreglos, matrices, etc.),
+por qu\'e se usa, la relaci\'on entre la representaci\'on matem\'atica y la estructura.
+
+\section{Descripci\'on del algoritmo}
+C\'omo fue implementada la soluci\'on. Interesa la implementaci\'on m\'as que el algoritmo gen\'erico, es decir,
+si se tiene que implementar SA, lo que se espera es que se explique en pseudoc\'odigo la estructura
+general y en p\'arrafo explicativo c\'omo fue implementada cada parte para su problema particular. Si
+se utilizan operadores se dede justificar por qu\'e se utilizaron dichos operadores. Si fuera el caso de una
+t\'ecnica completa, describir detalles relevantes del proceso, si se utiliza recursi\'on o no, etc.
+En este punto no se espera que se incluya c\'odigo, eso va aparte.
+
+\section{Experimentos}
+Se necesita saber c\'omo experimentaron, c\'omo definieron par\'ametros, c\'omo los fueron modificando, cu\'ales 
+problemas/instancias se trataron y por qu\'e, etc.
+
+\section{Resultados}
+Qu\'e fue lo que se logr\'o con la experimentaci\'on, incluir tablas y gr\'aficos (lo m\'as explicativo posible).
+Los resultados deben ser comentados en esta secci\'on.
 
 \section{Conclusiones}
 \begin{itemize}
