@@ -5,6 +5,7 @@
 #include <vector>
 #include <iomanip>
 #include <sstream>
+#include <math.h> 
 
 using namespace std;
 
@@ -18,10 +19,11 @@ public:
 City *cities;
 int DIM,CAP,NUMV;
 
-
+//declaraciones de funciones
 std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems);
 std::vector<std::string> split(const std::string &s, char delim);
-void show_matrix(int **&matrix, int size);
+void show_distance_matrix(int **&matrix, int size);
+void calculate_distances();
 
 int main()
 {
@@ -65,7 +67,18 @@ int main()
 		cities[0].y_coord=::atof(split(line,' ')[1].c_str());
 		cities[0].demand=-1;
 
+		calculate_distances();
+		show_distance_matrix(travel_times,DIM);
+
+
+
+
 		myfile.close();
+		for (int i = 0; i < DIM; ++i)
+			free(travel_times[i]);
+		free(travel_times);
+		free(cities);
+
 	}
 	else
 	{
@@ -74,16 +87,31 @@ int main()
 	}
 
 
-	for (int i = 0; i < DIM; ++i)
-		free(travel_times[i]);
-	free(travel_times);
-	free(cities);
-
+	
 	return 0;
 }
 
 
-
+void calculate_distances()
+{
+	int tmp_dist,tmp_dist_x,tmp_dist_y;
+	for (int i = 0; i < DIM; ++i)
+	{
+		for (int j = i; j < DIM; ++j)
+		{
+			if(i==j){
+				travel_times[i][j]=0;
+			}
+			else{
+				tmp_dist_x=abs(cities[i].x_coord-cities[j].x_coord);
+				tmp_dist_y=abs(cities[i].y_coord-cities[j].y_coord);
+				tmp_dist=tmp_dist_x+tmp_dist_y;
+				travel_times[i][j]=tmp_dist;
+				travel_times[j][i]=tmp_dist;
+			}
+		}
+	}
+}
 
 std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
     std::stringstream ss(s);
@@ -101,7 +129,7 @@ std::vector<std::string> split(const std::string &s, char delim) {
     return elems;
 }
 
-void show_matrix(int **&matrix, int size)
+void show_distance_matrix(int **&matrix, int size)
 {
     for (int i = 0; i < size; ++i)
     {
