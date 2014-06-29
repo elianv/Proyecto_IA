@@ -86,13 +86,11 @@ int main()
 		return -1;
 	}
 
-
-	
 	return 0;
 }
 
 
-void calculate_distances()
+void calculate_distances()//rellena la matriz de distancias entre ciudades y el depot
 {
 	int tmp_dist,tmp_dist_x,tmp_dist_y;
 	for (int i = 0; i < DIM; ++i)
