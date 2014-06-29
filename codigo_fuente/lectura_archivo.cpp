@@ -8,8 +8,15 @@
 
 using namespace std;
 
-int *demand;
 int **travel_times;
+class City{
+public:
+ int demand;
+ int x_coord;
+ int y_coord;
+};
+City *cities;
+int DIM,CAP,NUMV;
 
 
 std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems);
@@ -27,33 +34,37 @@ int main()
 		getline(myfile,line); // Type
 		getline(myfile,line); // Comment
 		getline(myfile,line); // Dimension
-		int DIM = ::atof(split(line,' ')[1].c_str());
+		DIM = ::atof(split(line,' ')[1].c_str());
+		cities = new City[DIM];
+		travel_times = new int*[DIM];
+		for (int i = 0; i < DIM; ++i)
+			travel_times[i] = new int[DIM];
 		getline(myfile,line); // Capacity
-		int CAP = ::atof(split(line,' ')[1].c_str());
+		CAP = ::atof(split(line,' ')[1].c_str());
 		getline(myfile,line); // No Vehicles
-		int NUMV = ::atof(split(line,' ')[1].c_str());
+		NUMV = ::atof(split(line,' ')[1].c_str());
 		getline(myfile,line); // EdgeType
 		getline(myfile,line); // EdgeWeight
 		getline(myfile,line); // NodeCoordT
 		getline(myfile,line); // NodeCordSect
-		for (int i = 0; i < DIM-1; ++i)
+		for (int i = 1; i < DIM; ++i) // el nodo 0 será el galpón
 		{
-			
-
-
+			getline(myfile,line);// línea de coordenadas
+			cities[i].x_coord=::atof(split(line,' ')[1].c_str());
+			cities[i].y_coord=::atof(split(line,' ')[2].c_str());
 		}
-		while (!myfile.eof())
+		getline(myfile,line); // DEMAND SECTION
+		for (int i = 1; i < DIM; ++i) // el nodo 0 será el galpón
 		{
-			//std::cout << "line: ";
-			getline(myfile,line);
-			if (line.empty()) continue;
-			std::vector<std::string> x = split(line, ' ');
-			std::cout << line + '\n';
-
-			//aux_coord.x = ::atof(x[0].c_str());
-			//aux_coord.y = ::atof(x[1].c_str());
-			//result.push_back(aux_coord);
+			getline(myfile,line);// línea de coordenadas
+			cities[i].demand=::atof(split(line,' ')[1].c_str());
 		}
+		getline(myfile,line); // DEPO SECTION
+		getline(myfile,line); // COORDS
+		cities[0].x_coord=::atof(split(line,' ')[0].c_str());
+		cities[0].y_coord=::atof(split(line,' ')[1].c_str());
+		cities[0].demand=-1;
+
 		myfile.close();
 	}
 	else
@@ -61,6 +72,13 @@ int main()
 		std::cout << "Unable to open file";
 		return -1;
 	}
+
+
+	for (int i = 0; i < DIM; ++i)
+		free(travel_times[i]);
+	free(travel_times);
+	free(cities);
+
 	return 0;
 }
 
