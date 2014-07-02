@@ -6,17 +6,37 @@
 #include <iomanip>
 #include <sstream>
 #include <math.h> 
+#include <list>
 
 using namespace std;
 
 int **travel_times;
+
 class City{
 public:
  int demand;
  int x_coord;
  int y_coord;
 };
+
+class Dato{
+	public:
+	 int costo;
+	 int numero;
+	 int anterior;
+	 int demanda;
+};
+
+class Visitada{
+	public:
+	 int numero;
+	 int x;
+	 int y;
+};
 City *cities;
+Visitada *visitadas;
+Dato *datos;
+
 int DIM,CAP,NUMV;
 
 //declaraciones de funciones
@@ -24,6 +44,7 @@ std::vector<std::string> &split(const std::string &s, char delim, std::vector<st
 std::vector<std::string> split(const std::string &s, char delim);
 void show_distance_matrix(int **&matrix, int size);
 void calculate_distances();
+int visited_city();
 
 int main()
 {
@@ -70,9 +91,6 @@ int main()
 		calculate_distances();
 		show_distance_matrix(travel_times,DIM);
 
-
-
-
 		myfile.close();
 		for (int i = 0; i < DIM; ++i)
 			free(travel_times[i]);
@@ -85,7 +103,20 @@ int main()
 		std::cout << "Unable to open file";
 		return -1;
 	}
-
+	visitadas = new Visitada[DIM];
+	
+	for (int i = 0; i < NUMV; i++){
+		cout << "Vehiculo :"<< i+1 << endl;
+		
+		vector<Dato> ruta;
+		ruta.push_back();
+		free(visitadas);
+		visitadas = new Visitada[DIM];
+		
+		//MFC(travel_times,DIM,&ruta);
+	}
+	
+	
 	return 0;
 }
 
@@ -127,7 +158,7 @@ std::vector<std::string> split(const std::string &s, char delim) {
     return elems;
 }
 
-void show_distance_matrix(int **&matrix, int size)
+void show_distance_matrix(int **&matrix, int size )
 {
     for (int i = 0; i < size; ++i)
     {
@@ -138,3 +169,16 @@ void show_distance_matrix(int **&matrix, int size)
         std::cout << std::endl;
     }
 }
+
+int visited_city()
+{
+	return 0;
+}
+
+void MFC(int **&matrix, int size,vector<Dato> &ruta)
+{
+	//iniciar en el deposito
+	cout << "Vector :" << &ruta <<endl;
+	
+}
+
