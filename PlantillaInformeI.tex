@@ -1,4 +1,5 @@
 \documentclass[letter, 10pt]{article}
+\usepackage{enumerate}
 \usepackage[latin1]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{amsfonts}
@@ -11,7 +12,7 @@
 \begin{document}
 \title{Inteligencia Artificial \\ \begin{Large}Estado del Arte: Vehicle Routing Problem \emph{(VRP)}\end{Large}}
 \author{Elian Vallejos}
-\date{13 de mayo de 2014}
+\date{07 de Junio de 2014}
 \maketitle
 
 
@@ -27,7 +28,7 @@ Modelo Matem\'atico (20\%): &  \underline{\hspace{2cm}}\\
 Conclusiones (20\%): &  \underline{\hspace{2cm}}\\
 Bibliograf\'ia (5\%): & \underline{\hspace{2cm}}\\
  &  \\
-\textbf{Nota Final!! (100\%)}:   & \underline{\hspace{2cm}}
+\textbf{Nota Final (100\%)}:   & \underline{\hspace{2cm}}
 \end{tabular}
 %---------------------------------------------------------------------------%
 \vspace{2cm}
@@ -72,6 +73,7 @@ Algo para tener en cuenta, es que la motivaci\'on que persigue esto, es la neces
 problem\'atica que se enfrenta al implementar soluciones para esta clase de problemas y tener un contraste entre lo que se aprende en un aula, junto
 con lo que se aprende en la investigaci\'on.
 
+\newpage
 \section{Definici\'on del Problema}
 
 El problema \emph{Vehicle Routing Problem} nace de la necesidad de tener el manejo efectivo de la provisi\'on de bienes o servicios, ya sea en la
@@ -91,15 +93,21 @@ Este consiste en general en lo siguiente:
  veh\'iculos utilizados, tiempo de transporte, etc.
  \'item Generar las rutas necesarias para la entrega de todos los productos a los clientes.
 \end{itemize}
-
+De acuerdo a lo anterior, se puede apreciar cuales son las variables, restricciones, etc.
+Primero se tienen las constantes, las que son la cantidad de veh\'iculos y su capacidad.
+Las variables, son todos aquellos clientes que necesitan que se les entreguen productos, ademas del deposito central, si bien este no tiene demanda, pero si tiene una distancia asociada a cada ciudad.
+Las restricciones en este caso, es la capacidad que tiene que cada veh\'iculo, dado que los veh\'iculos no pueden entregar m\'as productos que su m\'axima capacidad.
+La funci\'on de evaluaci\'on es tener la m\'inima distancia que cumpla la entrega para cada cliente, tomando en cuenta cada veh\'iculo.
+\newline
 Para describir los tour que se generan para cada veh\'iculo, se describen mediante grafos, cada nodo es un cliente y los arcos son el camino que 
 tiene asociado cada tramo. Adem\'as cada arco tiene asociado un costo.
 \newline
+\subsection{Variantes del Problema}
 Existen m\'ultiples variables a este problema, a continuaci\'on se describen, cabe destacar que este problema dada su complejidad es mas d\'ificil
 que el TSP que es muy parecido
 
 
-\subsection{Traveling Salesman Problem (TSP)}
+\subsubsection{Traveling Salesman Problem (TSP)}
 
 El problema del vendedor viajero es uno de los problemas m\'as estudiados, 
 este problema responde a la pregunta, que dada una lista de ciudades 
@@ -124,7 +132,7 @@ mencionarlos igualmente dada su similitud con el \emph{VRP} ~\cite{TSP}
 En general todas variaciones anteriores se aplican de una manera al \emph{VRP}, dado que el \emph{TSP} no es lo que se quiere explicar, no hay necesidad de
 detallar mas las variantes, de este.
 
-\subsection{Capacitated Vehicle Routing Problem (CVRP)}
+\subsubsection{Capacitated Vehicle Routing Problem (CVRP)}
 Esta variaci\'on al igual que el problema estudiado es una flota de veh\'iculos de reparto con una capacidad uniforme, los cuales 
 tienen que atender la demanda conocida de cliente, en distintos puntos geogr\'aficos, satisfaciendo la restricci\'on de que las rutas descritas tienen
 que ser a un m\'inimo costo tal cual lo har\'ia el \emph{VRP}, con la salvedad de que la capacidad de cada veh\'iculo es 
@@ -136,7 +144,7 @@ Su formulaci\'on es la misma que para el \emph{VRP} agregando la restricci\'on d
 no debe sobrepasar la capacidad del veh\'iculo asignado a la misma.
 
 
-\subsection{Distance Constrained Vehicle Routing Problem (DCVRP)}
+\subsubsection{Distance Constrained Vehicle Routing Problem (DCVRP)}
 
 Esta variante del problema radica en que a diferencia del \emph{Capacitated Vehicle Routing Problem (CVRP)} aqu\'i la restricci\'on de la capacidad
 del veh\'iculo es cambiada por la distancia ~\cite{TSP} en que se tiene que hacer el recorrido, dado que existe un limite m\'aximo el cual 
@@ -144,7 +152,7 @@ tiene que tener la ruta. Sigue teniendo m\'ultiples veh\'iculos, punto de salida
 Aqu\'i usualmente el costo se relaciona directamente con el viaje realizado o con el tiempo de este.
 
 
-\subsection{Vehicle Routing Problem with Backhauls (VRPB)}
+\subsubsection{Vehicle Routing Problem with Backhauls (VRPB)}
 
 La variante \emph{VRPB} tambi\'en conocida como linehault-backhault problem, tiene la particularidad que un cliente, puede estar satisfecho o no
 con el producto que se le entrega, dada esta premisa, este podr\'a devolver o no el producto al veh\'iculo repartidor ~\cite{Prosser93Hybrid}, 
@@ -154,15 +162,16 @@ de este adem\'as
 de si es necesario reordenar la carga, para as\'i poder llevar todo nuevamente al dep\'osito ~\cite{Prosser93Hybrid}, sin que el veh\'iculo se quede sin capacidad en alg\'un 
 momento.
 
-\subsection{Vehicle Routing Problem with Time Windows (VRPTW)}
+\subsubsection{Vehicle Routing Problem with Time Windows (VRPTW)}
 
 El \emph{VRPTW} se diferencia con los antecesores en que aqu\'i existe un periodo de tiempo en el cual el veh\'iculo debe iniciar el recorrido para
 cada cliente, para as\'i llegar sin problemas en el tiempo esperado por el cliente ~\cite{journals/eor/AziGP07}.
 Esta variante adem\'as toma en consideraci\'on, de que si el veh\'iculo llega antes del tiempo estimado, debe esperar un tiempo t para que empiece
 nuevamente el servicio, de manera que los plazos se cumplan cabalmente. Unas de sus aplicaciones son para el encaminamiento del autob\'us escolar y
 la programaci\'on de lineas a\'ereas.
+\newpage
 
-\subsection{Vehicle Routing Problem with Pickup and Delivery (VRPPD)}
+\subsubsection{Vehicle Routing Problem with Pickup and Delivery (VRPPD)}
 
 Aqu\'i lo que se modela es que cada cliente pide una cierta cantidad de productos, los cuales tienen que ser recogidos en el almac\'en, para luego ser
 llevados por el veh\'iculo hasta el cliente. Cada veh\'iculo tiene una capacidad de carga, por lo que los productos deben caber dentro del veh\'iculo
@@ -171,18 +180,26 @@ la ruta, los clientes, y adem\'as poder minimizar los costos, ya sea ruta mas co
 la demanda de los clientes.
 ~\cite{EilamTzoreff2002193}.
 
+\newpage
 \section{Estado del Arte}
 
-EL problema \emph{VRP} en un problema NP-dif\'icil , esto quiere decir que es un problema que intuitivamente es al menos tan dif\'icil como cualquier 
-problema NP.el \emph{VRP}, es una variante mas compleja del TSP.
+El problema \emph{VRP} en un problema NP-dif\'icil , esto quiere decir que es un problema que intuitivamente es al menos tan dif\'icil como cualquier 
+problema NP. El \emph{VRP}, es una variante mas compleja del TSP.
 \newline
-Actualmente la literatura se encuentra mucha informaci\'on de este problema, siendo las variantes expuestas en la \emph{Definici\'on del Problema }, 
-las mas ocurrentes, dado que se centran en la problem\'atica de hoy en d\'ia, en cuanto a la entrega de productos mediante la v\'ia de 
+Actualmente la literatura se encuentra mucha informaci\'on de este problema, siendo las variantes expuestas en la \emph{Definici\'on del Problema }, las mas ocurrentes, dado que se centran en la problem\'atica de hoy en d\'ia, en cuanto a la entrega de productos mediante la v\'ia de 
 medios de transporte.
+El \emph{VRP} es uno de los problemas m\'as comunes y m\'as estudiados, dada su derivaci\'on del \emph{TSP}, su evoluci\'on hist\'orica data del a\~no 1956 hasta los trabajos mas recientes. El \emph{VRP}, se conoce como tal desde el a\~no 1959 \cite{Ing3832}, el cual se modela la entrega de combustible a trav\'es de una flota de camiones.
+\newline
+En un principio el problema se intento solucionar aplicando t\'ecnicas completas de b\'usqueda, en las cuales destacan Programaci\'on Lineal y Entera, su principal problema fue el tiempo de computa que tardaban en entregar una soluci\'on\cite{Ing3832}. Luego se utilizaron Heur\'isticas, en las cuales su principal caracter\'isticas es que era m\'etodos constructivos de b\'usqueda de soluci\'on, la problem\'atica que surgi\'o a partir de estos, es que generaban buenas rutas en un inicio, pero el final no era el mejor\cite{Ing3832}. Por \'ultimo lo ultimo en usar fueron las Metaheur\'isticas. Estas se han utilizado en el \'ultimo tiempo, junto con la inclusi\'on de nuevos cambios como que los par\'ametros solo son conocidos durante el tiempo de ejecuci\'on\cite{Ing3832}.
+\newline
+En cualquier t\'ecnica que se utilice, la representaci\'on que mas frecuentemente se utilizo, es la de arboles, en la cual cada nodo
+(ciudad) se conecta con otra mediante una arista (arco o camino recorrido), para la conexi\'on entre todas las ciudad se utiliza 
+un grafo, en la cual matriz de adyacencia es la representaci\'on mas utilizada, dada su facilidad de manejo y simplicidad de
+implementar.
 A continuaci\'on se presentan algoritmos mas actuales los cuales tratan de encontrar soluci\'on a estas problem\'aticas:
 \subsection{Algoritmo Gen\'etico}
 Los Algoritmos gen\'eticos, son m\'etodos adaptativos que se basan en el proceso gen\'entico de los organismos vivos, que se usan para resolver 
-problemas de b\'usqueda y optimizaci\'on. Estos tratan de emular la evoluci\'on natural, actuando con el principio de sobre vivencia del mas apto, 
+problemas de b\'usqueda y optimizaci\'on. Estos tratan de emular la evoluci\'on natural, actuando con el principio de sobrevivencia del mas apto, 
 mejorando as\'i el desempe\~no de individuos que sean mejores que sus antepasados. La aptitud de los individuos se mide a trav\'es de una funci\'on de
 evaluaci\'on o funci\'on de aptitud, para que ver que tan aptos son. Se genera una poblaci\'on inicial, los cuales compiten por la oportunidad de
 reproducirse, pasando sus aptitudes a la siguiente generaci\'on. Para la reproducci\'on el algoritmo utiliza ciertos operadores, los cuales entregan 
@@ -233,45 +250,55 @@ Para esto se necesita ~\cite{whitepaper}:
  \item Un par\'ametro de control T y una asignaci\'on de enfriamiento que describe como var\'ian los par\'ametros con el tiempo.
 \end{itemize}
 
-En primer lugar, se debe contar con una soluci\'on inicial, sobre la cual se aplicar\'an ciertos movimientos que generar\'an un vecindario 
-de soluciones, las cuales ser\'an comparadas con la soluci\'on inicial, y si alguna presenta una mejora y en base a una probabilidad, 
-reemplazar\'a la soluci\'on inicial y el proceso se repite. Esto tantas veces como el hardware logre en un tiempo determinado.
+En primer lugar, se debe contar con una soluci\'on inicial, sobre la cual se aplicar\'an ciertos movimientos que generar\'an un vecindario de soluciones, las cuales ser\'an comparadas con la soluci\'on inicial, si alguna presenta de estas tiene alguna mejora reemplazara a la soluci\'on inicial dependiendo de una probabilidad de aceptaci\'on, el proceso se repite tantas veces sea necesario en un tiempo determinado.
 
+\newpage
 \section{Modelo Matem\'atico}
 La formulaci\'on aqu\'i presentada se centra en programaci\'on binaria.~\cite{RUTEO}
 
 \subsection{Par\'ametros}
 
-\begin{itemize}
+\begin{enumerate}[(1)]
  \item G = (V,A), grafo completo no dirigido.
  \item $V$ $=$ $\{v_{0},v_{1},v_{2},...,v_{n}\}$ Conjunto de nodos, $v_{0}$ es el dep\'osito
  \item $A$ $=$ $\{(i,j)$ $:$ $i,j$ $\in$ $V$, $i\neq j\}$ Conjunto de Aristas.
  \item $d_{i}$ $=$ demanda del nodo i.
  \item $k$ N\'umero de veh\'iculos disponibles.
  \item $Q$ capacidad de los veh\'iculos
+ \item $C_{i,j}$ Costo en ir desde el nodo i al nodo j
+\end{enumerate}
+\begin{itemize}
+\item Los par\'ametros (1),(2),(3) y (4) dado que estos valores son constantes se tiene un grafo el cual contenta un conjunto de Nodos V los que son las ciudades(clientes) mas el deposito el cual sera el primer nodo. El conjunto de aristas A es el cual cada ciudad esta conectada entre si, sin haber una arista que se conecte con el mismo nodo, o sea no hay un camino que interconecte a un nodo consigo mismo.
+\item El par\'ametro (4) indica cual es la demanda de cada nodo (cliente) que debe ser satisfecha.
+\item El par\'ametro (5) indica la cantidad de veh\'iculos que se tienen en la flota, para satisfacer a los clientes.
+\item La capacidad que tiene cada veh\'iculo es la misma para todos, la que se refleja en el par\'ametro (6).
+\item El camino que tiene que recorrer un veh\'iculo desde una ciudad a otra tiene un costo de distancia, el que se ve reflejado en el par\'ametro (7)
 \end{itemize}
 \subsection{Variables}
 Se usara una variable binaria para las decisiones 
 \begin{center}
-$X_{i,j}$ = \begin{cases} 1, & \text{si la soluci\'on utiliza el arco(\emph{i,j})} \\ 0 & \text{si no} \end{cases}
+\begin{equation}
+	X_{i,j}= \begin{cases} 1, & \text{si la soluci\'on utiliza el arco(\emph{i,j})} \\ 0, & \text{si no} \end{cases}
+\end{equation}
+
 \end{center}
 
 \subsection{Restricciones}
 
 \begin{align}
- &\displaystyle\sum_{i \in V}X_{ij} = 1, \forall j \in V_{0} \\
- &\displaystyle\sum_{j \in V}X_{ij} = 1, \forall i \in V_{0} \\
- &\displaystyle\sum_{i \in V}X_{i0} = k \\
- &\displaystyle\sum_{i \in V}X_{0j} = k \\
- &\displaystyle\sum_{i \not\in S}\sum_{j \in S}X_{xi} \geq r(S), \forall S \subset V_{0}, S \neq \Phi  \\
- &X_{ij} \in {0,1}, \forall i,j \in V
+ &\displaystyle\sum_{i \in V}X_{i,j} = 1, \forall j \in V_{0} \\
+ &\displaystyle\sum_{j \in V}X_{i,j} = 1, \forall i \in V_{0} \\
+ &\displaystyle\sum_{i \in V}X_{i,0} = k \\
+ &\displaystyle\sum_{i \in V}X_{0,j} = k \\
+ &\displaystyle\sum_{i \not\in S}\sum_{j \in S}X_{x,i} \geq r(S), \forall S \subset V_{0}, S \neq \Phi  \\
+ &X_{i,j} \in {0,1}, \forall i,j \in V
 \end{align}
 
 \begin{enumerate}
  \item Las restricciones (1) y (2) son para que no se repitan los arcos en las soluciones.
  \item Las restricciones (3) y (4) son para que entren y salgan la misma cantidad de veh\'iculos al deposito.
- \item La restricci\'on (5) no permite la existencia de substour
- \item r(S) es el n\'umero m\'inimo de veh\'iculos necesarios para satisfacer la demanda de S
+ \item La restricci\'on (5) no permite la existencia de substours.
+ \item r(S) es el n\'umero m\'inimo de veh\'iculos necesarios para satisfacer la demanda de S.
  
  
 \end{enumerate}
@@ -285,6 +312,7 @@ $Min$ $\displaystyle\sum_{i \in V}\sum_{j \in V} C_{j,i}*X_{j,i}$
  \item Lo que se quiere es minimizar los costos asociados a los caminos hechos.
 \end{itemize}
 
+\newpage
 \section{Representaci\'on}
 Representaci\'on matem\'atica y estructura de datos que se usa (arreglos, matrices, etc.),
 por qu\'e se usa, la relaci\'on entre la representaci\'on matem\'atica y la estructura.
@@ -305,6 +333,7 @@ problemas/instancias se trataron y por qu\'e, etc.
 Qu\'e fue lo que se logr\'o con la experimentaci\'on, incluir tablas y gr\'aficos (lo m\'as explicativo posible).
 Los resultados deben ser comentados en esta secci\'on.
 
+\newpage
 \section{Conclusiones}
 \begin{itemize}
  \item El problema de \emph{Vehicle Routing Problem}, es una problem\'atica actual de la industria, por lo que encontrar soluciones acorde 
@@ -316,7 +345,7 @@ Los resultados deben ser comentados en esta secci\'on.
  acotados.
  \end{itemize}
 
-
+\newpage
 \section{Bibliograf\'ia}
 \bibliographystyle{plain}
 \bibliography{Referencias}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.6.24)  2 JUL 2014 10:22
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.6.24)  7 JUL 2014 18:05
 entering extended mode
 **PlantillaInformeI.tex
 (C:\Users\evallejos\Desktop\Proyecto_IA\PlantillaInformeI.tex
@@ -30,10 +30,14 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+("C:\Program Files\text\tex\latex\tools\enumerate.sty"
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks14
+)
 ("C:\Program Files\text\tex\latex\base\inputenc.sty"
 Package: inputenc 2008/03/30 v1.1d Input encoding file
-\inpenc@prehook=\toks14
-\inpenc@posthook=\toks15
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
 
 ("C:\Program Files\text\tex\latex\base\latin1.def"
 File: latin1.def 2008/03/30 v1.1d Input encoding file
@@ -56,7 +60,7 @@ File: babel.def 2008/07/08 v3.8m Babel common definitions
 \U@D=\dimen103
 )
 \es@datefmt=\count88
-\es@quottoks=\toks16
+\es@quottoks=\toks17
 \es@quotdepth=\count89
 Package babel Info: Making " an active character on input line 492.
 Package babel Info: Making . an active character on input line 585.
@@ -65,7 +69,7 @@ Package babel Info: Making > an active character on input line 630.
 ))
 ("C:\Program Files\text\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks17
+\@emptytoks=\toks18
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
@@ -81,7 +85,7 @@ Package: amstext 2000/06/29 v2.01
 
 ("C:\Program Files\text\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks18
+\@emptytoks=\toks19
 \ex@=\dimen104
 ))
 ("C:\Program Files\text\tex\latex\amsmath\amsbsy.sty"
@@ -111,21 +115,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \dotsspace@=\muskip10
 \c@parentequation=\count97
 \dspbrk@lvl=\count98
-\tag@help=\toks19
+\tag@help=\toks20
 \row@=\count99
 \column@=\count100
 \maxfields@=\count101
-\andhelp@=\toks20
+\andhelp@=\toks21
 \eqnshift@=\dimen107
 \alignsep@=\dimen108
 \tagshift@=\dimen109
 \tagwidth@=\dimen110
 \totwidth@=\dimen111
 \lineht@=\dimen112
-\@envbody=\toks21
+\@envbody=\toks22
 \multlinegap=\skip44
 \multlinetaggap=\skip45
-\mathdisplay@stack=\toks22
+\mathdisplay@stack=\toks23
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
@@ -134,7 +138,7 @@ Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files\text\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
-\KV@toks@=\toks23
+\KV@toks@=\toks24
 )
 ("C:\Program Files\text\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
@@ -153,27 +157,204 @@ File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
 \Gin@req@height=\dimen113
 \Gin@req@width=\dimen114
 )
+("C:\Program Files\text\tex\latex\url\url.sty"
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+("C:\Program Files\text\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
 
-! LaTeX Error: File `url.sty' not found.
+("C:\Program Files\text\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+("C:\Program Files\text\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files\text\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count102
+\Gm@cntv=\count103
+\c@Gm@tempcnt=\count104
+\Gm@bindingoffset=\dimen115
+\Gm@wd@mp=\dimen116
+\Gm@odd@mp=\dimen117
+\Gm@even@mp=\dimen118
+\Gm@layoutwidth=\dimen119
+\Gm@layoutheight=\dimen120
+\Gm@layouthoffset=\dimen121
+\Gm@layoutvoffset=\dimen122
+\Gm@dimlist=\toks25
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sty)
+("C:\Program Files\text\tex\latex\geometry\geometry.cfg")
 
-Enter file name: 
-! Emergency stop.
-<read *> 
-         
-l.8 \usepackage
-               [top=3cm,bottom=3cm,left=3.5cm,right=3.5cm,footskip=1.5cm,hea...
-*** (cannot \read from terminal in nonstop modes)
+Package geometry Warning: Over-specification in `v'-direction.
+    `height' (85.35826pt) is ignored.
 
- 
+)
+
+LaTeX Warning: Unused global option(s):
+    [letter].
+
+(C:\Users\evallejos\Desktop\Proyecto_IA\PlantillaInformeI.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(99.58464pt, 415.12572pt, 99.58464pt)
+* v-part:(T,H,B)=(85.35826pt, 624.25346pt, 85.35826pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=415.12572pt
+* \textheight=624.25346pt
+* \oddsidemargin=27.31465pt
+* \evensidemargin=27.31465pt
+* \topmargin=-43.81721pt
+* \headheight=42.67912pt
+* \headsep=14.22636pt
+* \topskip=10.0pt
+* \footskip=42.67912pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 16.
+("C:\Program Files\text\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 16.
+
+("C:\Program Files\text\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{C:/Users/evallejos/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+
+LaTeX Warning: Citation `TSP' on page 2 undefined on input line 60.
+
+
+LaTeX Warning: Citation `Prosser93Hybrid' on page 2 undefined on input line 66.
+
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 96--105
+
+ []
+
+
+LaTeX Warning: Citation `TSP' on page 3 undefined on input line 116.
+
+
+LaTeX Warning: Citation `TSP' on page 3 undefined on input line 124.
+
+[3]
+
+LaTeX Warning: Citation `CVRP' on page 4 undefined on input line 139.
+
+
+LaTeX Warning: Citation `TSP' on page 4 undefined on input line 150.
+
+
+LaTeX Warning: Citation `Prosser93Hybrid' on page 4 undefined on input line 158
+.
+
+
+LaTeX Warning: Citation `Prosser93Hybrid' on page 4 undefined on input line 162
+.
+
+
+LaTeX Warning: Citation `journals/eor/AziGP07' on page 4 undefined on input lin
+e 168.
+
+[4]
+
+LaTeX Warning: Citation `EilamTzoreff2002193' on page 5 undefined on input line
+ 181.
+
+[5]
+
+LaTeX Warning: Citation `Ing3832' on page 6 undefined on input line 191.
+
+
+LaTeX Warning: Citation `Ing3832' on page 6 undefined on input line 193.
+
+
+LaTeX Warning: Citation `Ing3832' on page 6 undefined on input line 193.
+
+
+LaTeX Warning: Citation `Ing3832' on page 6 undefined on input line 193.
+
+
+LaTeX Warning: Citation `HC' on page 6 undefined on input line 221.
+
+[6]
+
+LaTeX Warning: Citation `whitepaper' on page 7 undefined on input line 245.
+
+[7]
+
+LaTeX Warning: Citation `RUTEO' on page 8 undefined on input line 257.
+
+[8] [9] [10] [11]
+No file PlantillaInformeI.bbl.
+[12] (C:\Users\evallejos\Desktop\Proyecto_IA\PlantillaInformeI.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 1753 strings out of 493921
- 21010 string characters out of 3149676
- 76827 words of memory out of 3000000
- 5080 multiletter control sequences out of 15000+200000
- 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 2504 strings out of 493921
+ 31418 string characters out of 3149676
+ 100992 words of memory out of 3000000
+ 5770 multiletter control sequences out of 15000+200000
+ 13846 words of font info for 52 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,0n,27p,241b,36s stack positions out of 5000i,500n,10000p,200000b,50000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 27i,10n,27p,818b,242s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/text/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program 
+Files/text/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/text/fon
+ts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/text/fonts/type1/public
+/amsfonts/cm/cmex10.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/P
+rogram Files/text/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/te
+xt/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/text/fonts/type1/
+public/amsfonts/cm/cmr17.pfb><C:/Program Files/text/fonts/type1/public/amsfonts
+/cm/cmr7.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:
+/Program Files/text/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
+/text/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/text/fonts/typ
+e1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/text/fonts/type1/public/amsf
+onts/cm/cmti12.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/cm/cmti9.
+pfb>
+Output written on PlantillaInformeI.pdf (12 pages, 224551 bytes).
+PDF statistics:
+ 105 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
