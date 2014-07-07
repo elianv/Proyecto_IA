@@ -5,8 +5,11 @@
 #include <vector>
 #include <iomanip>
 #include <sstream>
-#include <math.h> 
+#include <math.h>
 #include <list>
+#include <algorithm>
+#include "Dato.h"
+#include "Visitada.h"
 
 using namespace std;
 
@@ -19,23 +22,8 @@ public:
  int y_coord;
 };
 
-class Dato{
-	public:
-	 int costo;
-	 int numero;
-	 int anterior;
-	 int demanda;
-};
-
-class Visitada{
-	public:
-	 int numero;
-	 int x;
-	 int y;
-};
 City *cities;
-Visitada *visitadas;
-Dato *datos;
+
 
 int DIM,CAP,NUMV;
 
@@ -44,7 +32,11 @@ std::vector<std::string> &split(const std::string &s, char delim, std::vector<st
 std::vector<std::string> split(const std::string &s, char delim);
 void show_distance_matrix(int **&matrix, int size);
 void calculate_distances();
-int visited_city();
+void MFC(int **&matrix, int size,vector<Dato> &ruta,vector<Visitada> &visitadas);
+int visit_city();
+int visited_city(vector<Visitada> &vector, int numero);
+int menor(int **&matrix,int numero,int j);
+
 
 int main()
 {
@@ -92,10 +84,10 @@ int main()
 		show_distance_matrix(travel_times,DIM);
 
 		myfile.close();
-		for (int i = 0; i < DIM; ++i)
-			free(travel_times[i]);
-		free(travel_times);
-		free(cities);
+		//for (int i = 0; i < DIM; ++i)
+			//free(travel_times[i]);
+		//free(travel_times);
+		//free(cities);
 
 	}
 	else
@@ -103,20 +95,27 @@ int main()
 		std::cout << "Unable to open file";
 		return -1;
 	}
-	visitadas = new Visitada[DIM];
-	
+    vector<Visitada> visitadas;
+    Visitada newVisitadas(0,0,0);
+    visitadas.push_back(newVisitadas);
+    
+
 	for (int i = 0; i < NUMV; i++){
 		cout << "Vehiculo :"<< i+1 << endl;
-		
+
 		vector<Dato> ruta;
-		ruta.push_back();
-		free(visitadas);
-		visitadas = new Visitada[DIM];
+
+		//Deposito
+		Dato newDato(0,0,0,CAP);
+		ruta.push_back(newDato);
+		//llenado deposito
+		Visitada visitas(0,0,0);
 		
-		//MFC(travel_times,DIM,&ruta);
+		MFC(travel_times,DIM,ruta,visitadas);
+
 	}
-	
-	
+
+
 	return 0;
 }
 
@@ -170,15 +169,59 @@ void show_distance_matrix(int **&matrix, int size )
     }
 }
 
-int visited_city()
+int visited_city(vector<Visitada> &vector, int numero)
 {
-	return 0;
+	
+	int j = 0;
+	
+	for (unsigned int i = 0 ; i < vector.size(); i++){
+		if (vector[i].getNumero() == numero)
+			j = 1;
+	}
+	return j;
 }
 
-void MFC(int **&matrix, int size,vector<Dato> &ruta)
+int menor(int **&matrix,int numero,int j)
 {
-	//iniciar en el deposito
-	cout << "Vector :" << &ruta <<endl;
+	vector<int> cercanias;
+	for (int i = 0; i < DIM ; i++){
+			cercanias.push_back(matrix[numero][i]);
+			//cout << "i :" << i <<" " << matrix[numero][i] << endl;
+	}
+	sort(cercanias.begin(), cercanias.end());
+
+	return cercanias[1+j];
 	
+}
+
+void MFC(int **&matrix, int size,vector<Dato> &ruta,vector<Visitada> &visitadas)
+{
+	int num = 0;
+	while(ruta[ruta.size()-1].getCapacidad() > 0){
+	
+		//distancia mas cercana
+		int cercano = menor(matrix,ruta[ruta.size()-1].getNumero(),num);
+		
+		//busco que posicion tiene y veo si puedo ofertar demanda.
+		for(int j = 0; j < DIM ; j++){
+			if (cercano == matrix[ruta[ruta.size()-1].getNumero()][j]){
+				int valor = (ruta[ruta.size()-1].getCapacidad() - cities[j].demand);
+				if (valor <= 0)
+					num ++;
+			}
+				
+		}
+		 
+		//int valor = visited_city(visitadas,ruta[ruta.size()-1].getNumero());
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+
 }
 
