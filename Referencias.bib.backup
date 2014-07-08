@@ -1,0 +1,92 @@
+@misc{TSP,
+ author = {Massimo Paolucci},
+ title = {Vehicle Routing Problems},
+ howpublished = "\url{http://www.discovery.dist.unige.it/didattica/LS/VRP.pdf}",
+}
+@Article{CVRP,
+year={2008},
+isbn={978-0-387-77777-1},
+booktitle={The Vehicle Routing Problem: Latest Advances and New Challenges},
+volume={43},
+series={Operations Research/Computer Science Interfaces},
+editor={Golden, Bruce and Raghavan, S. and Wasil, Edward},
+doi={10.1007/978-0-387-77778-8_11},
+title={Modeling and Solving the Capacitated Vehicle Routing Problem on Trees},
+url={http://dx.doi.org/10.1007/978-0-387-77778-8_11},
+publisher={Springer US},
+keywords={Capacitated vehicle routing on trees; integer linear programming formulations; high-level modeling languages},
+author={Chandran, Bala and Raghavan, S.},
+pages={239-261},
+language={English}
+journal = {}
+}
+
+@article{journals/eor/AziGP07,
+  added-at = {2007-04-23T00:00:00.000+0200},
+  author = {Azi, Nabila and Gendreau, Michel and Potvin, Jean-Yves},
+  biburl = {http://www.bibsonomy.org/bibtex/2f202a459fea17c88e8b7c24ff8bf6484/dblp},
+  date = {2007-04-23},
+  description = {dblp},
+  ee = {http://dx.doi.org/10.1016/j.ejor.2006.02.019},
+  interhash = {fa9f6eb82c68080dd6dabd09d2e1c013},
+  intrahash = {f202a459fea17c88e8b7c24ff8bf6484},
+  journal = {European Journal of Operational Research},
+  keywords = {dblp},
+  number = 3,
+  pages = {755-766},
+  timestamp = {2007-04-23T00:00:00.000+0200},
+  title = {An exact algorithm for a single-vehicle routing problem with time windows and multiple routes.},
+  url = {http://dblp.uni-trier.de/db/journals/eor/eor178.html#AziGP07},
+  volume = 178,
+  year = 2007
+}
+
+@Article{EilamTzoreff2002193,
+title = {The vehicle routing problem with pickups and deliveries on some special graphs },
+journal = {Discrete Applied Mathematics },
+volume = {116},
+number = {3},
+pages = {193 - 229},
+year = {2002},
+note = {},
+issn = {0166-218X},
+doi = {http://dx.doi.org/10.1016/S0166-218X(00)00283-3},
+url = {http://www.sciencedirect.com/science/article/pii/S0166218X00002833},
+author = {Tali Eilam Tzoreff and Daniel Granot and Frieda Granot and Greys Sosic},
+keywords = {Vehicle routing},
+keywords = {Polynomial algorithm},
+keywords = {Tree},
+keywords = {Cycle graph},
+keywords = {Warehouse graph }
+}
+
+@Article{Prosser93Hybrid,
+  address = {School of Industrial and Systemeering, Georgia Institute of Technology, Atlanta},
+  author = {Jacobs-Blecha, C. and Goetschalckx, M.},
+  title = {The vehicle routing problem with backhauls: properties and solution algorithms},
+  year = {1992},
+  journal = {}
+}
+
+@Misc{RUTEO,
+ author = {Irma Delia Garcia Calvillo},
+ address = {Universidad Autónoma de Coahuila},
+ title = {El problema de ruteo de vehiculos},
+ howpublished = "\url{http://lya.fciencias.unam.mx/computocientifico/archivos/RuteoVehiculos.pdf}",
+ year = {2010}
+}
+
+@Misc{whitepaper,
+ title = {OPTIMIZATION TECHNOLOGY WHITE PAPER. A comparative study of optimization techniques},
+ year = {1997},
+ journal = {ILOG, Inc,}
+}
+
+@Misc{HC,
+ title = {Local search algorithms and optimization problems. Hill climbing},
+ Author = {},
+ year = {2012},
+ howpublished = "\url{http://es.scribd.com/doc/7290255/Hill-Climbing-Methods}",
+}
+
+

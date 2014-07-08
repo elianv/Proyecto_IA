@@ -7,6 +7,10 @@
 \usepackage[dvips]{graphicx}
 \usepackage{url}
 \usepackage[top=3cm,bottom=3cm,left=3.5cm,right=3.5cm,footskip=1.5cm,headheight=1.5cm,headsep=.5cm,textheight=3cm]{geometry}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{algpseudocode}
+%\input{spanishAlgorithmic} % mi archivo de traducción
 
 
 \begin{document}
@@ -20,15 +24,16 @@
 \section*{Evaluaci\'on}
 
 \begin{tabular}{ll}
-Resumen (5\%): & \underline{\hspace{2cm}} \\
-Introducci\'on (5\%):  & \underline{\hspace{2cm}} \\
-Definici\'on del Problema (10\%):  & \underline{\hspace{2cm}} \\
-Estado del Arte (35\%):  & \underline{\hspace{2cm}} \\
-Modelo Matem\'atico (20\%): &  \underline{\hspace{2cm}}\\
-Conclusiones (20\%): &  \underline{\hspace{2cm}}\\
-Bibliograf\'ia (5\%): & \underline{\hspace{2cm}}\\
+Mejoras 1ra Entrega (10 \%): &  \underline{\hspace{2cm}}\\
+C\'odigo Fuente (10 \%): &  \underline{\hspace{2cm}}\\
+Representaci\'on (15 \%):  & \underline{\hspace{2cm}} \\
+Descripci\'on del algoritmo (20 \%):  & \underline{\hspace{2cm}} \\
+Experimentos (10 \%):  & \underline{\hspace{2cm}} \\
+Resultados (10 \%):  & \underline{\hspace{2cm}} \\
+Conclusiones (20 \%): &  \underline{\hspace{2cm}}\\
+Bibliograf\'ia (5 \%): & \underline{\hspace{2cm}}\\
  &  \\
-\textbf{Nota Final (100\%)}:   & \underline{\hspace{2cm}}
+\textbf{Nota Final (100)}:   & \underline{\hspace{2cm}}
 \end{tabular}
 %---------------------------------------------------------------------------%
 \vspace{2cm}
@@ -203,17 +208,17 @@ problemas de b\'usqueda y optimizaci\'on. Estos tratan de emular la evoluci\'on 
 mejorando as\'i el desempe\~no de individuos que sean mejores que sus antepasados. La aptitud de los individuos se mide a trav\'es de una funci\'on de
 evaluaci\'on o funci\'on de aptitud, para que ver que tan aptos son. Se genera una poblaci\'on inicial, los cuales compiten por la oportunidad de
 reproducirse, pasando sus aptitudes a la siguiente generaci\'on. Para la reproducci\'on el algoritmo utiliza ciertos operadores, los cuales entregan 
-una mejor opci\'on para evolucionar en una buena soluci\'on.
+una mejor opci\'on para evolucionar en una buena soluci\'on.\cite{whitepaper}
 \begin{itemize}
  \item Selecci\'on: Se busca dentro de la poblaci\'on o se seleccionan \emph{X} cantidad de individuos, y se ve cuales son los mas aptos para ir al 
  siguiente paso del algoritmo, el valor que dice si son aptos o no, es la funci\'on de aptitud el cual es la m\'etrica para saber si 
- son seleccionados o no.
+ son seleccionados o no.\cite{whitepaper}
  \item Crossover: Aqu\'i mediante una probabilidad, se ve si los individuos previamente seleccionados son cruzados entre si, para dar origen a sus,
  hijos existen varios operadores de cruce, los cuales pueden ser, cruzamiento en un punto, dos puntos, etc, esto depender\'a del 
- tipo de implementaci\'on utilizada. Dando as\'i mejores individuos, que heredaran las caracter\'isticas de sus padres.
+ tipo de implementaci\'on utilizada. Dando as\'i mejores individuos, que heredaran las caracter\'isticas de sus padres.\cite{whitepaper}
  \item Mutaci\'on: Este operador introduce un cambio aleatorio en los individuos, la gracia de este operador, es que entrega nueva informaci\'on a la 
  poblaci\'on, por ende permite mejorar y dar saltos de un lugar de b\'usqueda a otro. Para la utilizaci\'on de este operador, se usa un probabilidad 
- la cual dir\'a si el operador se usara en el individuo o no.
+ la cual dir\'a si el operador se usara en el individuo o no.\cite{whitepaper}
 \end{itemize}
 \subsection{Hill Climbing}
 El algoritmo Hill Climbing se basa en la b\'usqueda de profundidad, lo que se hace es que en cada paso se mejora la soluci\'on encontrada, de manera 
@@ -290,15 +295,17 @@ Se usara una variable binaria para las decisiones
  &\displaystyle\sum_{j \in V}X_{i,j} = 1, \forall i \in V_{0} \\
  &\displaystyle\sum_{i \in V}X_{i,0} = k \\
  &\displaystyle\sum_{i \in V}X_{0,j} = k \\
- &\displaystyle\sum_{i \not\in S}\sum_{j \in S}X_{x,i} \geq r(S), \forall S \subset V_{0}, S \neq \Phi  \\
+ &\displaystyle\sum_{i \not\in S}\sum_{j \in S}X_{x,i} \geq r(S), \forall S \subset V/\{0\}, S \neq \Phi  \\
  &X_{i,j} \in {0,1}, \forall i,j \in V
 \end{align}
 
 \begin{enumerate}
- \item Las restricciones (1) y (2) son para que no se repitan los arcos en las soluciones.
- \item Las restricciones (3) y (4) son para que entren y salgan la misma cantidad de veh\'iculos al deposito.
+ \item Las restricciones (1) y (2) son para que no se repitan los arcos en las soluciones. Dado que solo se debe visitar una sola vez cada ciudad, por ende no pueden haber soluciones con un camino repetido.
+ \item Las restricciones (3) y (4) son para que entren y salgan la misma cantidad de veh\'iculos al deposito. El nodo 0, se toma como el deposito por esta raz\'on cualquier  camino hacia el nodo i debe terminar en 0, y
+ cualquier camino que termine en el nodo j debe llegar a 0
  \item La restricci\'on (5) no permite la existencia de substours.
- \item r(S) es el n\'umero m\'inimo de veh\'iculos necesarios para satisfacer la demanda de S.
+ \item r(S) es el n\'umero m\'inimo de veh\'iculos necesarios para satisfacer la demanda de S. en Donde S es un subconjunto de nodos V menos el nodo deposito dado que este no tiene demanda. 
+ La cantidad S es distinta a $\Phi$, que es la demanda total del circuito\cite{Toth2002487}.
  
  
 \end{enumerate}
@@ -306,29 +313,221 @@ Se usara una variable binaria para las decisiones
 \subsection{Funci\'on objetivo}
 
 \begin{center}
-$Min$ $\displaystyle\sum_{i \in V}\sum_{j \in V} C_{j,i}*X_{j,i}$
+$Min$ $\displaystyle\sum_{i \in V}\sum_{j \in V} C_{i,j}*X_{i,j}$
 \end{center}
 \begin{itemize}
- \item Lo que se quiere es minimizar los costos asociados a los caminos hechos.
+ \item Lo que se quiere es minimizar los costos asociados a los caminos hechos. Por esta raz\'on a cada variable X, se le multiplica su costo, y la sumatoria de todo da la funci\'on objetivo
 \end{itemize}
 
 \newpage
 \section{Representaci\'on}
-Representaci\'on matem\'atica y estructura de datos que se usa (arreglos, matrices, etc.),
-por qu\'e se usa, la relaci\'on entre la representaci\'on matem\'atica y la estructura.
+%Representaci\'on matem\'atica y estructura de datos que se usa (arreglos, matrices, etc.),
+%por qu\'e se usa, la relaci\'on entre la representaci\'on matem\'atica y la estructura.
+Dado el modelo propuesto anteriormente, la representaci\'on mas intuitiva que se encontr\'o para las conexiones entre las ciudades y el deposito es una matriz de \emph{NxN}, 
+en donde N es la cantidad de ciudades en cada instancia. En \emph{C++} esto se logra mediante un arreglo bidimensional. En cada celda \emph{i,j} de la matriz se almacenara la distancia de la
+ciudad \emph{i} a la ciudad \emph{j}. La celda \emph{(0,0)} es la que contiene el deposito, si bien es cierto no necesariamente el deposito esta en el principio de las ciudades, para simplificar 
+se usa de esta manera, dado que las distancias se calculan a partir de la posici\'on de estos. Otro dato a considerar, es que esta es una matriz sim\'etrica en donde su diagonal son \emph{0}, dado 
+que el ir desde una ciudad a la misma no tiene costo. A continuaci\'on se muestre un ejemplo:
+
+\begin{center}
+ \begin{tabular}[t]{|c|c|c|c|c|}
+\hline
+           & Deposito & Ciudad 1 & Ciudad 2 & Ciudad 3 \\
+\hline
+Deposito   & 0        & 2        & 5        & 1\\
+\hline
+Ciudad 1   & 2        & 0        & 4        & 6\\
+\hline
+Ciudad 2   & 5        & 4        & 0        & 3\\
+\hline
+Ciudad 3   & 1        & 6        & 3        & 0\\
+\hline
+\end{tabular}
+
+\end{center}
+\begin{center}
+\textbf{Ejemplo} Matriz de adyacencia. 
+\end{center}
+Como se ve, el ir del deposito a la ciudad 1 tiene un costo de 2 (matriz[0][2] = 2), y de la ciudad 1 a la ciudad 3 tiene un costo de 6 (matriz[1][3] = 6).
+\newline
+Una vez que se tiene la matriz de adyacencia es necesario ir almacenando las rutas que sigue cada veh\'iculo, es por esta raz\'on que la estructura que se utilizo es el vector, dada su rapidez 
+a la hora de hacer operaci\'on sobre este.
+
+\begin{center}
+ \begin{tabular}[t]{|c|c|c|c|c|}
+\hline
+ Deposito & Ciudad 4 & Ciudad 2 & Ciudad 3 & Deposito \\
+\hline
+
+\end{tabular}
+\end{center}
+\begin{center}
+\textbf{Ejemplo} Vector de rutas. 
+\end{center}
+
+Para almacenar los datos correspondientes, como demanda de la ciudad, distancia, etc. se almaceno dentro de nodo del vector un objeto con los datos de cada ciudad, de esta manera se sabe el orden 
+con cual se visitaron las ciudades.
+\begin{center}
+ \begin{tabular}[t]{|c|}
+\hline
+
+ Ciudad \\
+ \hline
+Datos \\
+\hline
++Set() \\
++Get() \\
+\hline
+ \end{tabular}
+\end{center}
+
+\begin{center}
+\textbf{Ejemplo} Clase Ciudad. 
+\end{center}
+
+Dado que los par\'ametros son conocidos antes del tiempo de ejecuci\'on se tiene que para estos solo se usaron variables globales. Las cuales son.
+\begin{center}
+ \begin{itemize}
+ \item \emph{DIM}: Dimensi\'on de la matriz.
+ \item \emph{k}: N\'umero de veh\'iculos disponibles.
+ \item \emph{Q}: Capacidad de los veh\'iculos.
+ \end{itemize}
+\end{center}
+\begin{center}
+\textbf{Ejemplo} constantes. 
+\end{center}
+
+
+
+
+\newpage
 
 \section{Descripci\'on del algoritmo}
-C\'omo fue implementada la soluci\'on. Interesa la implementaci\'on m\'as que el algoritmo gen\'erico, es decir,
-si se tiene que implementar SA, lo que se espera es que se explique en pseudoc\'odigo la estructura
-general y en p\'arrafo explicativo c\'omo fue implementada cada parte para su problema particular. Si
-se utilizan operadores se dede justificar por qu\'e se utilizaron dichos operadores. Si fuera el caso de una
-t\'ecnica completa, describir detalles relevantes del proceso, si se utiliza recursi\'on o no, etc.
-En este punto no se espera que se incluya c\'odigo, eso va aparte.
+%C\'omo fue implementada la soluci\'on. Interesa la implementaci\'on m\'as que el algoritmo gen\'erico, es decir,
+%si se tiene que implementar SA, lo que se espera es que se explique en pseudoc\'odigo la estructura
+%general y en p\'arrafo explicativo c\'omo fue implementada cada parte para su problema particular. Si
+%se utilizan operadores se dede justificar por qu\'e se utilizaron dichos operadores. Si fuera el caso de una
+%t\'ecnica completa, describir detalles relevantes del proceso, si se utiliza recursi\'on o no, etc.
+%En este punto no se espera que se incluya c\'odigo, eso va aparte.
 
+El algoritmo que se uso para resolver este problema fue \emph{Minimal Forward Checking (MFC)}. La implementaci\'on de MFC fue realizada en \emph{C++}.
+
+\begin{algorithm}
+  \caption{
+    Minimal Forward Checking}
+  \begin{algorithmic}[1]
+       \STATE{$DIM \gets Inicializar$}
+       \STATE{$k \gets Inicializar$}
+       \STATE{$Q \gets Inicializar$}
+       \STATE{matriz $\gets Inicializar$}
+       \STATE{LlenarMatriz(matriz)}
+       \STATE{<<vector>>$Ruta_{k}$ $\gets Inicializar$}
+       \STATE{<<vector>>Visitadas $\gets Inicializar$}
+       \STATE{Ruta$\gets$Deposito}
+       \REPEAT
+        \FOR{$i < Q$}
+	  \STATE{Ruta_{i}$\gets$Deposito}
+	  \Function{MFC}{matriz,Ruta$_{i}$,Visitadas}
+	    \REPEAT
+	      \STATE{Encontrada $\gets$BuscarCiudadCercana(matriz,\'ultima ciudad en la ruta)}
+	      \IF{((Vehiculo$_{i}$-DemandaEncontrada$>$0)\&\&(Encontrada no este en visitadas))}
+	       \STATE{Ruta$_{i} \gets$ Encontrada}
+	       \STATE{Visitadas$\gets$Encontrada}
+	       \STATE{CapacidadVehiculo$_{i}\gets$(CapacidadVehiculo$_{i}$-DemandaEncontrada)}
+	      \ENDIF
+	    \UNTIL{Vehiculo en la Ruta$_{i}$ tenga capacidad}
+	    \RETURN Ruta$_{i}$,Visitadas
+	    \EndFunction
+          \STATE{\emph{i++}}
+          \ENDFOR
+        \UNTIL{CriterioParada}
+        \end{algorithmic}
+\end{algorithm}
+A continuaci\'on se detalle el funcionamiento de cada parte, para lograr entender de mejor manera su funcionamiento.
+\newpage
+\subsection{Inicializaci\'on de la Variables}
+
+Al inicio del algoritmo se deben ejecutar todas aquellos par\'ametros que se deben saber para el correcto funcionamiento, dado que esto se sabe con anterioridad al tiempo de generaci\'on de soluciones. 
+Por esta raz\'on es que la Dimensi\'on de la matriz, el numero de veh\'iculos y la capacidad de estos, es lo primero en inicializar. El problema que se ve tiene como requerimiento que estos par\'ametros sean
+establecidos antes, no durante el transcurso de b\'usqueda de soluciones.
+Luego se inicializa la matriz, la cual tendr\'a como dimensiones el numero de ciudades m\'as el deposito que ocupara el lugar (0,0). La matriz se llena a continuaci\'on con las distancias entre cada ciudad.
+Como se dijo anteriormente, se inicializan el vector de las ciudades visitadas, mas 1 vector por cada veh\'iculo, para luego en el vector de rutas, ingresar el deposito en cada uno, dado que como condici\'on
+se debe partir de este. No se ingresa en el vector de visitadas el deposito puesto que es el \'unico punto que se debe visitar 2 veces, tanto como al inicio como al fin de cada ruta.
+
+\begin{algorithm}
+  \caption{
+    Minimal Forward Checking-Inicializaci\'on}
+  \begin{algorithmic}[1]
+       \STATE{$DIM \gets Inicializar$}
+       \STATE{$k \gets Inicializar$}
+       \STATE{$Q \gets Inicializar$}
+       \STATE{matriz $\gets Inicializar$}
+       \STATE{LlenarMatriz(matriz)}
+       \STATE{<<vector>>$Ruta_{k}$ $\gets Inicializar$}
+       \STATE{<<vector>>Visitadas $\gets Inicializar$}
+       \STATE{Ruta$\gets$Deposito}
+        \end{algorithmic}
+\end{algorithm}
+
+\subsection{Filtrado}
+
+\begin{algorithm}
+  \caption{
+    Minimal Forward Checking - Filtrado}
+  \begin{algorithmic}[1]
+       \REPEAT
+        \FOR{$i < Q$}
+	  \STATE{Ruta_{i}$\gets$Deposito}
+	  \Function{MFC}{matriz,Ruta$_{i}$,Visitadas}
+	    \REPEAT
+	      \STATE{Encontrada$\gets$BuscarCiudadCercana(matriz,\'ultima ciudad en la ruta)}
+	      \IF{((Vehiculo$_{i}$-DemandaEncontrada$>$0)\&\&(Encontrada no este en visitadas))}
+	       \STATE{Ruta$_{i} \gets$ Encontrada}
+	       \STATE{Visitadas$\gets$Encontrada}
+	       \STATE{CapacidadVehiculo$_{i}\gets$(CapacidadVehiculo$_{i}$-DemandaEncontrada)}
+	      \ENDIF
+	    \UNTIL{Vehiculo en la Ruta$_{i}$ tenga capacidad}
+	    \RETURN Ruta$_{i}$,Visitadas
+	    \EndFunction
+          \STATE{\emph{i++}}
+          \ENDFOR
+        \UNTIL{CriterioParada}
+        \end{algorithmic}
+\end{algorithm}
+
+Como es un algoritmo de b\'usqueda completa una de los principales problemas es ver el resultado en un tiempo acotado, suponiendo instancias demasiado grande, en el cual no hay un tiempo polinomial asociado 
+al computo se estable un criterio de parada, ya sea un tiempo especificado, cantidad de soluciones encontradas, etc.
+\newline
+Luego para cada veh\'iculo Q se hace la b\'usqueda de soluciones, para continuar e ingresar en su ruta el deposito.
+La funci\'on MFC toma como par\'ametros la matriz de adyacencia de las ciudades, la Ruta para el veh\'iculo $i$, y el listado de ciudades visitadas. Dado que en la propuesta del problema la gran restricci\'on
+es que se debe satisfacer la demanda, y no hay problema entre las ciudades (todas interconectadas) salvo que no se pueden visitar mas de una vez, lo que se busca es que el veh\'iculo entrege la mayor cantidad
+de productos (satisfaga la mayor cantidad de clientes posible), por este motivo se tiene que el procedimiento se repita hasta que no el cami\'on se quede sin capacidad.
+\newline
+Luego dentro de la funci\'on como se tiene que el primero en la ruta es el deposito se busca la ciudad mas cercana y se almacena en una variable, esta variable contiene toda la informaci\'on de la ciudad 
+encontrada. No se hace mayor incapie en la funci\'on BuscarCiudadCercana dado que el lector puede implementarla a gusto, dado que solo entrega esto, y la manera de implementaci\'on no afecta en mayor cantidad 
+el grueso del \emph{MFC}.
+\newline
+La condicion \emph{if} lo que busca es chequear que la ciudad encontrada respete las restricciones, las cuales son que la demanda que tiene dicha ciudad pueda ser satisfecha por la capacidad que le queda al
+veh\'iculo, y adem\'as que la ciudad no este en la lista de visitadas, as\'i de esta manera no se caigan en un loop ya sea porque el veh\'iculo tiene capacidad infinita o siempre se va a la misma ciudad.
+\newline
+Una vez dentro del \emph{if} se procede a hacer las asignaciones, se ingresa dentro de la ruta la ciudad encontrada, y adem\'as en el vector de visitadas para as\'i asegurar el correcto funcionamiento. 
+Como ultima asignaci\'on a la capacidad del veh\'iculo se le resta la demanda de la ciudad encontrada.
+\newline
+La funci\'on finalmente entrega ruta obtenida y las ciudades visitadas. Se entrega las visitadas, dado que este es un valor que se tiene que guardar en el tiempo para todos los veh\'iculos. Luego se incrementa 
+$i$ que es lo que pasa de un veh\'iculo a otro.
+\newline
+Para no incurrir en errores, se debe tener en cuenta que cada asignaci\'on de ciudad que se hace o guarde es un objeto, esto se aplica para todos los vectores y comparaci\'on entre ciudad cercana viable y
+ciudades en ruta o en el vector de visitadas.
+
+
+\newpage
 \section{Experimentos}
-Se necesita saber c\'omo experimentaron, c\'omo definieron par\'ametros, c\'omo los fueron modificando, cu\'ales 
-problemas/instancias se trataron y por qu\'e, etc.
+%Se necesita saber c\'omo experimentaron, c\'omo definieron par\'ametros, c\'omo los fueron modificando, cu\'ales 
+%problemas/instancias se trataron y por qu\'e, etc.
+Para los experimentaci\'on se utilizo un Computador AMD con 4 Core de 3.6 GHz, 8 GB de RAM y Ubuntu Linux 13.10 de 64bit.
+\new line
 
+\newpage
 \section{Resultados}
 Qu\'e fue lo que se logr\'o con la experimentaci\'on, incluir tablas y gr\'aficos (lo m\'as explicativo posible).
 Los resultados deben ser comentados en esta secci\'on.

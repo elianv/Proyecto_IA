@@ -1,0 +1,64 @@
+\begin{thebibliography}{10}
+
+\bibitem{journals/eor/AziGP07}
+Nabila Azi, Michel Gendreau, and Jean-Yves Potvin.
+\newblock An exact algorithm for a single-vehicle routing problem with time
+  windows and multiple routes.
+\newblock {\em European Journal of Operational Research}, 178(3):755--766,
+  2007.
+
+\bibitem{RUTEO}
+Irma Delia~Garcia Calvillo.
+\newblock El problema de ruteo de vehiculos.
+\newblock
+  \url{http://lya.fciencias.unam.mx/computocientifico/archivos/RuteoVehiculos.pdf},
+  fecha de consulta 20/06/2014.
+
+\bibitem{CVRP}
+Bala Chandran and S.~Raghavan.
+\newblock Modeling and solving the capacitated vehicle routing problem on
+  trees.
+\newblock {\em Springer}, 43:239--261, 2008.
+
+\bibitem{whitepaper}
+INC. ILOG.
+\newblock Optimization technology white paper. a comparative study of
+  optimization techniques, 1997.
+
+\bibitem{Prosser93Hybrid}
+C.~Jacobs-Blecha and M.~Goetschalckx.
+\newblock The vehicle routing problem with backhauls: properties and solution
+  algorithms.
+\newblock {\em Georgia Institute of Technology}, 1992.
+
+\bibitem{TSP}
+Massimo Paolucci.
+\newblock Vehicle routing problems.
+\newblock \url{http://www.discovery.dist.unige.it/didattica/LS/VRP.pdf}, fecha
+  de consulta 01/07/2014.
+
+\bibitem{HC}
+porapi 3705912.
+\newblock Local search algorithms and optimization problems. hill climbing.
+\newblock \url{http://es.scribd.com/doc/7290255/Hill-Climbing-Methods}, fecha
+  de consulta 20/06/2014.
+
+\bibitem{Toth2002487}
+Paolo Toth and Daniele Vigo.
+\newblock Models, relaxations and exact approaches for the capacitated vehicle
+  routing problem.
+\newblock {\em Discrete Applied Mathematics}, 123(1 - 3):487 -- 512, 2002.
+
+\bibitem{EilamTzoreff2002193}
+Tali~Eilam Tzoreff, Daniel Granot, Frieda Granot, and Greys Sosic.
+\newblock The vehicle routing problem with pickups and deliveries on some
+  special graphs.
+\newblock {\em Discrete Applied Mathematics}, 116(3):193 -- 229, 2002.
+
+\bibitem{Ing3832}
+Linda Rocha~Medina y~Elsa Gonzalez La Rotta~y Javier Orjuela~Castro.
+\newblock Una revision al estado del arte del problema de ruteo de vehiculos:
+  Evolucion historica y metodos de solucion.
+\newblock {\em Ingenieria}, 16(2), 2011.
+
+\end{thebibliography}
