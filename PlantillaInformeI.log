@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.6.24)  7 JUL 2014 18:05
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.6.24)  5 AUG 2014 16:19
 entering extended mode
 **PlantillaInformeI.tex
 (C:\Users\evallejos\Desktop\Proyecto_IA\PlantillaInformeI.tex
@@ -193,24 +193,84 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 Package geometry Warning: Over-specification in `v'-direction.
     `height' (85.35826pt) is ignored.
 
+) ("C:\Program Files\text\tex\latex\algorithms\algorithm.sty"
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+("C:\Program Files\text\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count105
+\float@exts=\toks26
+\float@box=\box28
+\@float@everytoks=\toks27
+\@floatcapt=\box29
+)
+("C:\Program Files\text\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks28
+\c@algorithm=\count106
+)
+("C:\Program Files\text\tex\latex\algorithms\algorithmic.sty"
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count107
+\c@ALC@line=\count108
+\c@ALC@rem=\count109
+\c@ALC@depth=\count110
+\ALC@tlm=\skip46
+\algorithmicindent=\skip47
+)
+("C:\Program Files\text\tex\latex\algorithmicx\algpseudocode.sty"
+Package: algpseudocode 
+
+("C:\Program Files\text\tex\latex\algorithmicx\algorithmicx.sty"
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count111
+\c@ALG@rem=\count112
+\c@ALG@nested=\count113
+\ALG@tlm=\skip48
+\ALG@thistlm=\skip49
+\c@ALG@Lnr=\count114
+\c@ALG@blocknr=\count115
+\c@ALG@storecount=\count116
+\c@ALG@tmpcounter=\count117
+\ALG@tmplength=\skip50
+
+! LaTeX Error: Command \algorithmic already defined.
+               Or name \end... illegal, see p.192 of the manual.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.112    }
+          %
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+)
+Document Style - pseudocode environments for use with the `algorithmicx' style
 )
 
 LaTeX Warning: Unused global option(s):
     [letter].
 
 (C:\Users\evallejos\Desktop\Proyecto_IA\PlantillaInformeI.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -246,115 +306,210 @@ LaTeX Font Info:    ... okay on input line 12.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 16.
+LaTeX Font Info:    Try loading font information for U+msa on input line 20.
 ("C:\Program Files\text\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 16.
+LaTeX Font Info:    Try loading font information for U+msb on input line 20.
 
 ("C:\Program Files\text\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/evallejos/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-
-LaTeX Warning: Citation `TSP' on page 2 undefined on input line 60.
-
-
-LaTeX Warning: Citation `Prosser93Hybrid' on page 2 undefined on input line 66.
-
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 96--105
+{C:/Users/evallejos/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2]
+Underfull \hbox (badness 10000) in paragraph at lines 101--110
 
  []
 
+[3] [4] [5] [6] [7] [8] [9] [10]
+LaTeX Font Info:    Try loading font information for U+lasy on input line 423.
+ ("C:\Program Files\text\tex\latex\base\ulasy.fd"
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+! Missing $ inserted.
+<inserted text> 
+                $
+l.428 	  \STATE{Ruta_
+                     {i}$\gets$Deposito}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-LaTeX Warning: Citation `TSP' on page 3 undefined on input line 116.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.428 	  \STATE{Ruta_{i}$\gets
+                              $Deposito}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
+! Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.429 	  \Function
+                  {MFC}{matriz,Ruta$_{i}$,Visitadas}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
 
-LaTeX Warning: Citation `TSP' on page 3 undefined on input line 124.
+! Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.429 	  \Function
+                  {MFC}{matriz,Ruta$_{i}$,Visitadas}
+I'm ignoring this, since I wasn't doing a \csname.
 
-[3]
+! Missing number, treated as zero.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.443         \end{algorithmic}
+                               
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
 
-LaTeX Warning: Citation `CVRP' on page 4 undefined on input line 139.
+! Missing = inserted for \ifnum.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.443         \end{algorithmic}
+                               
+I was expecting to see `<', `=', or `>'. Didn't.
 
+! Missing number, treated as zero.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.443         \end{algorithmic}
+                               
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
 
-LaTeX Warning: Citation `TSP' on page 4 undefined on input line 150.
+[11]
+! Missing number, treated as zero.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.468         \end{algorithmic}
+                               
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
 
+! Missing = inserted for \ifnum.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.468         \end{algorithmic}
+                               
+I was expecting to see `<', `=', or `>'. Didn't.
 
-LaTeX Warning: Citation `Prosser93Hybrid' on page 4 undefined on input line 158
-.
+! Missing number, treated as zero.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.468         \end{algorithmic}
+                               
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.479 	  \STATE{Ruta_
+                     {i}$\gets$Deposito}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-LaTeX Warning: Citation `Prosser93Hybrid' on page 4 undefined on input line 162
-.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.479 	  \STATE{Ruta_{i}$\gets
+                              $Deposito}
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
+! Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.480 	  \Function
+                  {MFC}{matriz,Ruta$_{i}$,Visitadas}
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
 
-LaTeX Warning: Citation `journals/eor/AziGP07' on page 4 undefined on input lin
-e 168.
+! Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.480 	  \Function
+                  {MFC}{matriz,Ruta$_{i}$,Visitadas}
+I'm ignoring this, since I wasn't doing a \csname.
 
-[4]
+! Missing number, treated as zero.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.494         \end{algorithmic}
+                               
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
 
-LaTeX Warning: Citation `EilamTzoreff2002193' on page 5 undefined on input line
- 181.
+! Missing = inserted for \ifnum.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.494         \end{algorithmic}
+                               
+I was expecting to see `<', `=', or `>'. Didn't.
 
-[5]
+! Missing number, treated as zero.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.494         \end{algorithmic}
+                               
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
 
-LaTeX Warning: Citation `Ing3832' on page 6 undefined on input line 191.
+[12] [13]
+! Undefined control sequence.
+l.527 \new
+           line
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
+[14] [15] [16] (C:\Users\evallejos\Desktop\Proyecto_IA\PlantillaInformeI.bbl
+Underfull \hbox (badness 1478) in paragraph at lines 11--16
+[]\OT1/cmr/m/n/10 Irma De-lia Gar-cia Cal-vi-llo.  El pro-ble-ma de ru-teo de v
+ehicu-los.  $\OT1/cmtt/m/n/10 http : / / lya .$
+ []
 
-LaTeX Warning: Citation `Ing3832' on page 6 undefined on input line 193.
-
-
-LaTeX Warning: Citation `Ing3832' on page 6 undefined on input line 193.
-
-
-LaTeX Warning: Citation `Ing3832' on page 6 undefined on input line 193.
-
-
-LaTeX Warning: Citation `HC' on page 6 undefined on input line 221.
-
-[6]
-
-LaTeX Warning: Citation `whitepaper' on page 7 undefined on input line 245.
-
-[7]
-
-LaTeX Warning: Citation `RUTEO' on page 8 undefined on input line 257.
-
-[8] [9] [10] [11]
-No file PlantillaInformeI.bbl.
-[12] (C:\Users\evallejos\Desktop\Proyecto_IA\PlantillaInformeI.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+) [17] (C:\Users\evallejos\Desktop\Proyecto_IA\PlantillaInformeI.aux) ) 
 Here is how much of TeX's memory you used:
- 2504 strings out of 493921
- 31418 string characters out of 3149676
- 100992 words of memory out of 3000000
- 5770 multiletter control sequences out of 15000+200000
- 13846 words of font info for 52 fonts, out of 3000000 for 9000
+ 3254 strings out of 493921
+ 41808 string characters out of 3149676
+ 116335 words of memory out of 3000000
+ 6491 multiletter control sequences out of 15000+200000
+ 14421 words of font info for 55 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,10n,27p,818b,242s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/text/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program 
-Files/text/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/text/fon
-ts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/text/fonts/type1/public
-/amsfonts/cm/cmex10.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/P
-rogram Files/text/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/te
-xt/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/text/fonts/type1/
-public/amsfonts/cm/cmr17.pfb><C:/Program Files/text/fonts/type1/public/amsfonts
-/cm/cmr7.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:
-/Program Files/text/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
-/text/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/text/fonts/typ
-e1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/text/fonts/type1/public/amsf
-onts/cm/cmti12.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/cm/cmti9.
-pfb>
-Output written on PlantillaInformeI.pdf (12 pages, 224551 bytes).
+ 27i,10n,27p,812b,682s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Prog
+ram Files/text/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/text
+/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/text/fonts/type1/p
+ublic/amsfonts/cm/cmbx9.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/
+cm/cmcsc10.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/cm/cmex10.pfb
+><C:/Program Files/text/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program F
+iles/text/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/text/fonts
+/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/text/fonts/type1/public/a
+msfonts/cm/cmr12.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/cm/cmr1
+7.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Progra
+m Files/text/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/text/fon
+ts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/text/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/cm/cm
+sy7.pfb><C:/Program Files/text/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pr
+ogram Files/text/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/te
+xt/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Program Files/text/fonts/type1/
+public/amsfonts/cm/cmtt10.pfb><C:/Program Files/text/fonts/type1/public/amsfont
+s/latxfont/lasy10.pfb>
+Output written on PlantillaInformeI.pdf (17 pages, 291944 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
+ 137 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

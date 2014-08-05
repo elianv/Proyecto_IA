@@ -108,8 +108,7 @@ Para describir los tour que se generan para cada veh\'iculo, se describen median
 tiene asociado cada tramo. Adem\'as cada arco tiene asociado un costo.
 \newline
 \subsection{Variantes del Problema}
-Existen m\'ultiples variables a este problema, a continuaci\'on se describen, cabe destacar que este problema dada su complejidad es mas d\'ificil
-que el TSP que es muy parecido
+Existen m\'ultiples variables a este problema, a continuaci\'on se describen, cabe destacar que este problema dada su complejidad es mas d\'ificil que el TSP que es muy parecido.
 
 
 \subsubsection{Traveling Salesman Problem (TSP)}
@@ -332,15 +331,15 @@ que el ir desde una ciudad a la misma no tiene costo. A continuaci\'on se muestr
 \begin{center}
  \begin{tabular}[t]{|c|c|c|c|c|}
 \hline
-           & Deposito & Ciudad 1 & Ciudad 2 & Ciudad 3 \\
+           & Deposito & Cliente 1 & Cliente 2 & Cliente 3 \\
 \hline
 Deposito   & 0        & 2        & 5        & 1\\
 \hline
-Ciudad 1   & 2        & 0        & 4        & 6\\
+Cliente 1   & 2        & 0        & 4        & 6\\
 \hline
-Ciudad 2   & 5        & 4        & 0        & 3\\
+Cliente 2   & 5        & 4        & 0        & 3\\
 \hline
-Ciudad 3   & 1        & 6        & 3        & 0\\
+Cliente 3   & 1        & 6        & 3        & 0\\
 \hline
 \end{tabular}
 
@@ -356,7 +355,7 @@ a la hora de hacer operaci\'on sobre este.
 \begin{center}
  \begin{tabular}[t]{|c|c|c|c|c|}
 \hline
- Deposito & Ciudad 4 & Ciudad 2 & Ciudad 3 & Deposito \\
+ Deposito & Cliente 4 & Cliente 2 & Cliente 3 & Deposito \\
 \hline
 
 \end{tabular}
@@ -526,22 +525,103 @@ ciudades en ruta o en el vector de visitadas.
 %problemas/instancias se trataron y por qu\'e, etc.
 Para los experimentaci\'on se utilizo un Computador AMD con 4 Core de 3.6 GHz, 8 GB de RAM y Ubuntu Linux 13.10 de 64bit.
 \new line
+Las instancias utilizadas son las de Christofides, las que se proporcionaron en la pagina del ramo (moodle.inf.utfsm.cl, Curso IA). Las instancias proporcionadas cuentas con distinta cantidad de veh\'iculos, capacidad de estos, dimensiones y costos para cada ciudad. Inclusive otros par\'ametros como lo son tiempo de servicio de cada cliente, para simplicidad solo se tomaron algunos factores, los cuales son los mencionados con anterioridad en este paper (veh\'iculos, capacidad de veh\'iculos, cantidad de ciudades). Una de las importancias que tienen estas instancias, es que incluyen la informaci\'on del mejor tiempo obtenido.
+\newline
+Independiente de los valores entregados en cada instancia, se variaron algunos par\'ametros para ver el rendimiento del algoritmo y ver como funciona en los distintos escenarios.
+\newline
+	Las instancias que se utilizaron inclu\'ian los siguientes par\'ametros:
+	\begin{itemize}
+		\item COMMENT: Mejor Tiempo obtenido en cada instancia.
+		\item DIMENSION: Cantidad de ciudades m\'as el deposito (dimension de la matriz).
+		\item VEHICLES: Cantidad de veh\'iculos para la instancia.
+		\item CAPACITY: Corresponde a la capacidad de cada veh\'iculo.		
+		\item NODE\_COORD\_SECTION valor1 valor2 valor3: Valor 1 corresponde al n\'umero de la ciudad, valor 2 es la coordenada X que tiene y valor 3 es la coordenada y de la ciudad.
+		\item DEMAND\_SECTION valor1 valor2: Valor 1 corresponde al n\'umero de la ciudad y el valor2 corresponde a la demanda de aquella ciudad.
+		\item DEPOT\_SECTION valor1 valor2: corresponde a la ubicaci\'on del deposito, el valor1 corresponde a la coordenada x y el valor2 corresponde a la coordenada y del deposito.
+	\end{itemize}
+	
+	\subsection{Instancias de Prueba}
+	
+Las instancias de prueba que se tienen variaban con entre los siguientes par\'ametros:
+
+	\begin{itemize}
+		\item DIMENSION: La dimesion variaba desde los 51 hasta las 200 ciudades, iban tomando valores intermedios.
+		\item VEHICLES: La cantidad de veh\'iculos que variaban en las instancias iban desde 5 a 17. Independiente de los valores pre-establecidos se uso desde 1 veh\'iculo para probar la eficiencia.
+		\item CAPACITY: La capacidad vario desde 140 hasta 200 siendo 200 el valor mas recurrente.
+		\item DEMAND\_SECTION valor1 valor2: Valor 1 corresponde al n\'umero de la ciudad y el valor2 corresponde a la demanda de aquella ciudad.
+	\end{itemize}
+	En general se usaron la instancia de dimension 51, dado que para las otras instancias no entrego resultados. Por lo que la variaci\'on de esta fue principalmente la capacidad de los veh\'iculos y la cantidad de estos, teniendo en cuenta que el valor mas critico fue el de 3 veh\'iculos, ya que una mayor cantidad de estos no entrega resultado.
 
 \newpage
 \section{Resultados}
-Qu\'e fue lo que se logr\'o con la experimentaci\'on, incluir tablas y gr\'aficos (lo m\'as explicativo posible).
-Los resultados deben ser comentados en esta secci\'on.
+%Qu\'e fue lo que se logr\'o con la experimentaci\'on, incluir tablas y gr\'aficos (lo m\'as explicativo posible).
+%Los resultados deben ser comentados en esta secci\'on.
+A continuaci\'on se detallan los resultados obtenidos, teniendo como referencia los parametros de la dimensi\'on y la cantidad de veh\'iculos.
+\subsection{Variaci\'on de Veh\'iculos.}
+En esta parte se hace la prueba con la variaci\'on de veh\'iculos para cada instancia:
+\begin{center}
+ \begin{tabular}[t]{|c|c|c|c|}
+\hline
+Veh\'iculos & Dimensi\'on & Distancia Total Recorrida 1 & Tiempo de ejecuci\'on \\
+\hline
+1   		& 51         & 700     &  1615,14[s] \\
+\hline
+2           & 51        & 900     &   2365,56[s]\\
+\hline
+2           & 51        & -     &   -\\
+\hline
+4           & 51        & -     &  - \\
+\hline
+5           & 51       & -     &  - \\
+\hline
+\end{tabular}
+\end{center}
+Se observa bien que para una cantidad mayor de 2 veh\'iculos el algoritmo no responde, dado que al buscar todas las combinaciones posibles no hay un tiempo razonable. Sin embargo para uno o 2 la distancia total recorrida es considerable, pensando que para esta instancia se tiene una distancia m\'inima 524,61
 
+
+\subsection{Variaci\'on de la dimensi\'on.}
+\begin{center}
+ \begin{tabular}[t]{|c|c|c|c|}
+\hline
+Veh\'iculos & Dimensi\'on & Distancia Total Recorrida 1 & Tiempo de ejecuci\'on \\
+\hline
+1   		& 51         & 700     &  1615,14[s] \\
+\hline
+1           & 151        & 1564     &   3456,12[s]\\
+\hline
+1           & 200        & -     &   -\\
+\hline
+2           & 51        & 900     &  2365,56[s] \\
+\hline
+2           & 151       & -     &  - \\
+\hline
+2           & 200       & -     &  - \\
+\hline
+3           & 51       & -     &  - \\
+\hline
+3           & 151       & -     &  - \\
+\hline
+3           & 200       & -     &  - \\
+\hline
+\end{tabular}
+\end{center}
+
+Dado que se observa que para una cantidad de veh\'iculos superior a 2 no hay una soluci\'on entregada, por lo que se opta por cantidades peque\~nas de veh\'iculos en cada una de las distintas matrices, se observa que para dimensiones por sobre 151 tampoco existen resultados.
 \newpage
 \section{Conclusiones}
 \begin{itemize}
- \item El problema de \emph{Vehicle Routing Problem}, es una problem\'atica actual de la industria, por lo que encontrar soluciones acorde 
- a las necesidades de los clientes y proveedores, no es una tarea f\'acil, inclusive dada la complejidad que este tipo de problemas puede tener,
- \item Dada su similitud con el \emph{TSP}, el modelo matem\'atico que se presenta es muy parecido, con lo que no hay problema entre la 
- relaci\'on establecida con anterioridad, es por esta raz\'on que el modelo descrito es acorde al problema y relaciona ambos problemas.
- \item Dada la complejidad del problema, se puede encontrar amplia literatura acerca de este, sobre todo algoritmos relativamente nuevos, dado que
- es un problema muy complejo de resolver, no se utilizan t\'ecnicas completas en la actualidad, dado que se necesitan buenas soluciones en tiempos 
- acotados.
+ \item El problema de \emph{Vehicle Routing Problem}, es una problem\'atica actual de la industria, por lo que encontrar soluciones acorde a las necesidades de los clientes y proveedores, no es una tarea f\'acil, inclusive dada la complejidad que este tipo de problemas puede tener, es por ello que a trav\'es de la aparici\'on de t\'ecnicas para resolver estos problemas se han usado todo tipo de metaheur\'isticas inclusive t\'ecnicas completas, siendo las metahuristicas las que llevan una mayor ventaja, dado la entrega de soluciones en tiempos acotados, como por ejemplo si necesito el reparto para el d\'ia siguiente, no puedo computar 1 semana una buena soluci\'on.
+ \item Dada su similitud con el \emph{TSP}, el modelo matem\'atico que se presenta es muy parecido, con lo que no hay problema entre la relaci\'on establecida con anterioridad, es por esta raz\'on que el modelo descrito es acorde al problema y relaciona ambos problemas, por ende el modelo con el tiempo no ha variado mucho, m\'as que nada en las distintas versiones del problema se incluyen o eliminan restricciones, como dimensiones del veh\'iculo, si en cada entrega hay o no un tiempo de espera, etc. Por ende siempre que se busca el modelo de esto se tienen muchas similitudes, inclusive con la modelaci\'on de los problemas m\'as recientes.
+ 
+ \item La representaci\'on utilizada ayuda mucha a la hora de ejecutar los c\'alculos y las iteraciones para poder generar rutas factibles, dado que la implementacion de listas multiplemente enlazadas genera mucho problema para la mantencion de esta, mientras que un grafo es la representaci\'on mas utilizada en las art\'iculos, y con justa raz\'on.
+ 
+ \item En general todas las t\'ecnicas han ido resolviendo el mismo problema, inclusive con los par\'ametros y restricciones nuevas, teniendo en cuenta que cada vez que se implemento alguna t\'ecnica estas difer\'ian en el tiempo de entrega de una soluci\'on de buena calidad o que problemas tra\'ia una por sobre otra, como se explico t\'ecnicas constructivas ten\'ian la problem\'atica de que en un inicio las rutas ten\'ian mejor calidad que las ultimas.
+ 
+ \item Existe una fase de transici\'on en la cual un problema con cierta cantidad de restricci\'on es mas facil de solucionar que uno sin muchas restricciones, en la cual este es el caso de que no hay muchas restricciones por lo que se hace muy dif\'icil encontrar una soluci\'on en poco tiempo por la consideraci\'on de que todas las ciudades estan conectadas con las dem\'as, y la restricci\'on mas fuerte es la capacidad de cada veh\'iculo
+ 
+ \item Dado que se utiliza un t\'ecnica completa es dificil ver en que pueden diferenciar con metahur\'isticas, dado que el MFC es un t\'ecnica completa y por ende al variar los par\'ametros siempre se tendr\'an todas las soluciones y no se podr\'a comparar salvo en tiempos de entrega, que para este caso fueron demasiado altos, teniendo en cuenta las dimensiones a explorar y que por sobre todo es un grafo fuertemente conectado. 
+ 
+ \item Dada la complejidad del problema, se puede encontrar amplia literatura acerca de este, sobre todo algoritmos relativamente nuevos, dado que es un problema muy complejo de resolver, no se utilizan t\'ecnicas completas en la actualidad, dado que se necesitan buenas soluciones en tiempos acotados (resoluci\'on en tiempo polinomial), a futuro se ve cambios en mutaci\'on entre t\'ecnicas, para ver las calidades de las soluciones implementadas, al igual que inclusi\'on de otras variables, en estos tiempos el cambio din\'amico de veh\'iculos, capacidad de estos o inclusive la devoluci\'on de productos, son los casos de estudio que actualmente se ven, y como las diferentes t\'ecnicas reaccionan frente a estos.
  \end{itemize}
 
 \newpage
