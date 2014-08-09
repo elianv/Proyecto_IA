@@ -54,3 +54,4 @@ void Dato::setAnterior(int newAnterior){
 void Dato::setCapacidad(int newCapacidad){
 	capacidad = newCapacidad;
 }
+

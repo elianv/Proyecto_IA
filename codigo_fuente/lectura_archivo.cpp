@@ -25,17 +25,21 @@ public:
 City *cities;
 
 
-int DIM,CAP,NUMV;
+int DIM,CAP,NUMV,VEH,Q;
+vector<Visitada> Visitadas;
+vector<Dato> ruta; //vector solucion
+vector<Dato> BestSol;
 
 //declaraciones de funciones
 std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems);
 std::vector<std::string> split(const std::string &s, char delim);
 void show_distance_matrix(int **&matrix, int size);
+void imprimir_ruta();
 void calculate_distances();
-void MFC(int **&matrix, int size,vector<Dato> &ruta,vector<Visitada> &visitadas);
-int visit_city();
+void MFC(int **&matrix,int size,int vehiculos);
+void imprimir_visitadas();
 int visited_city(vector<Visitada> &vector, int numero);
-int menor(int **&matrix,int numero,int j);
+void copiar_vector();
 
 
 int main()
@@ -95,30 +99,36 @@ int main()
 		std::cout << "Unable to open file";
 		return -1;
 	}
-    vector<Visitada> visitadas;
-    Visitada newVisitadas(0,0,0);
-    visitadas.push_back(newVisitadas);
     
-
-	for (int i = 0; i < NUMV; i++){
-		cout << "Vehiculo :"<< i+1 << endl;
-
-		vector<Dato> ruta;
-
-		//Deposito
-		Dato newDato(0,0,0,CAP);
-		ruta.push_back(newDato);
-		//llenado deposito
-		Visitada visitas(0,0,0);
-		
-		MFC(travel_times,DIM,ruta,visitadas);
-
-	}
-
+	Visitada Cliente(0,0,0);
+	Visitadas.push_back(Cliente);
+	
+	Dato newDato(0,0,0,CAP);//Creo deposito 
+	ruta.push_back(newDato);//agrego deposito a la solucion
+	VEH = NUMV;
+	Q = 0;
+	MFC(travel_times,DIM,NUMV); 
+	cout << "Mejor Solucion:";
+		for(unsigned int i = 0; i < BestSol.size() ; i++)
+			cout << BestSol[i].getNumero() <<"-";
+	cout <<endl;		
 
 	return 0;
 }
 
+void imprimir_ruta(){
+	
+	int distancia_total = 0;
+	cout << "ruta :";
+	for (unsigned int i = 0 ; i < ruta.size(); i++){
+		cout << ruta[i].getNumero() << "-";
+		distancia_total = ruta[i].getDistancia() + distancia_total;
+	}
+	cout << endl;
+	//cout << "distancia total recorrida :" << distancia_total <<endl;
+	
+
+}
 
 void calculate_distances()//rellena la matriz de distancias entre ciudades y el depot
 {
@@ -131,9 +141,9 @@ void calculate_distances()//rellena la matriz de distancias entre ciudades y el 
 				travel_times[i][j]=0;
 			}
 			else{
-				tmp_dist_x=abs(cities[i].x_coord-cities[j].x_coord);
-				tmp_dist_y=abs(cities[i].y_coord-cities[j].y_coord);
-				tmp_dist=tmp_dist_x+tmp_dist_y;
+				tmp_dist_x=abs(cities[i].x_coord-cities[j].x_coord)*abs(cities[i].x_coord-cities[j].x_coord);
+				tmp_dist_y=abs(cities[i].y_coord-cities[j].y_coord)*abs(cities[i].y_coord-cities[j].y_coord);
+				tmp_dist=ceil(sqrt(tmp_dist_x+tmp_dist_y));
 				travel_times[i][j]=tmp_dist;
 				travel_times[j][i]=tmp_dist;
 			}
@@ -163,65 +173,121 @@ void show_distance_matrix(int **&matrix, int size )
     {
         for (int j = 0; j < size; ++j)
         {
-            std::cout << std::setw(3) << matrix[i][j] << " ";
+            //std::cout << std::setw(3) << matrix[i][j] << " ";
         }
-        std::cout << std::endl;
+        //std::cout << std::endl;
     }
 }
 
-int visited_city(vector<Visitada> &vector, int numero)
+int visited_city(int numero)
 {
 	
-	int j = 0;
+	int j = 1;
 	
-	for (unsigned int i = 0 ; i < vector.size(); i++){
-		if (vector[i].getNumero() == numero)
-			j = 1;
+	for (unsigned int i = 0 ; i < Visitadas.size(); i++){
+		if (Visitadas[i].getNumero() == numero){
+			j = 0;
+		}	
+	
 	}
 	return j;
 }
 
-int menor(int **&matrix,int numero,int j)
-{
-	vector<int> cercanias;
-	for (int i = 0; i < DIM ; i++){
-			cercanias.push_back(matrix[numero][i]);
-			//cout << "i :" << i <<" " << matrix[numero][i] << endl;
-	}
-	sort(cercanias.begin(), cercanias.end());
-
-	return cercanias[1+j];
+void imprimir_visitadas(){
 	
+	
+	cout << "visitadas :";
+	for (unsigned int i = 0 ; i < Visitadas.size(); i++){
+		cout << Visitadas[i].getNumero() << "-";
+		//distancia_total = ruta[i].getDistancia() + distancia_total;
+	}
+	cout << endl;
+	//cout << "distancia total recorrida :" << distancia_total <<endl;
 }
 
-void MFC(int **&matrix, int size,vector<Dato> &ruta,vector<Visitada> &visitadas)
-{
-	int num = 0;
-	while(ruta[ruta.size()-1].getCapacidad() > 0){
+void copiar_vector(){
+
+	BestSol.clear();
+	for (unsigned int i = 0; i < ruta.size() ;i++){
+		int Distancia = ruta[i].getDistancia();
+		int Numero = ruta[i].getNumero();
+		int Anterior = ruta[i].getAnterior();
+		int Capacidad = ruta[i].getCapacidad();
+		Dato newDato(Distancia,Numero,Anterior,Capacidad);
+		BestSol.push_back(newDato);
+	}
 	
-		//distancia mas cercana
-		int cercano = menor(matrix,ruta[ruta.size()-1].getNumero(),num);
-		
-		//busco que posicion tiene y veo si puedo ofertar demanda.
-		for(int j = 0; j < DIM ; j++){
-			if (cercano == matrix[ruta[ruta.size()-1].getNumero()][j]){
-				int valor = (ruta[ruta.size()-1].getCapacidad() - cities[j].demand);
-				if (valor <= 0)
-					num ++;
-			}
+
+}
+
+void MFC(int **&matrix,int size,int vehiculos)
+{
+	
+	for(int i = 0; i < size ; i++){
+	
+		//veo si esta visitada
+		if( visited_city(i) ){
+						
+			//veo si tiene capacidad para entregar
+			if( (ruta[ruta.size()-1].getCapacidad() - cities[i].demand) >= 0 ) {
+				//cout << "dentro MFC" << endl;
+				//creo el cliente a guardar
+				int distancia_recorrida = matrix[ruta[ruta.size()-1].getNumero()][i] + ruta[ruta.size()-1].getDistancia();
+				int capacidad = ruta[ruta.size()-1].getCapacidad() - cities[i].demand;
 				
+				Dato NewDato2(distancia_recorrida,i,ruta[ruta.size()-1].getNumero(),capacidad);
+				ruta.push_back(NewDato2);
+				
+				Visitada Cliente(i,ruta[ruta.size()-1].getNumero(),i);
+				Visitadas.push_back(Cliente);
+				
+				MFC(matrix,size,vehiculos);
+				
+				Visitadas.pop_back();
+				ruta.pop_back();
+				
+				if(ruta[ruta.size()-1].getAnterior() == 0 && ruta.size() > 2){
+					
+					ruta.pop_back();
+					VEH = VEH + 1;
+					//imprimir_ruta();
+					
+				}
+				
+			}
+			else{
+					if (VEH > 0){
+							int distancia_recorrida = matrix[ruta[ruta.size()-1].getNumero()][0] + ruta[ruta.size()-1].getDistancia();
+							int numero = ruta[ruta.size()-1].getNumero();
+							int CAPACIDAD = CAP;
+							Dato Volver(distancia_recorrida,0,numero,CAPACIDAD);//Creo deposito 
+	
+							ruta.push_back(Volver);//agrego deposito a la solucion
+							VEH = VEH -1; //que otro camion continue con la ruta
+					}
+					else{
+							
+							imprimir_ruta();
+							if (Q == 0){
+								copiar_vector();
+								Q++;
+							}
+							if(ruta[ruta.size()-1].getDistancia() < BestSol[BestSol.size()-1].getDistancia())
+							{
+								copiar_vector();
+							}
+							
+
+					}
+			}
+
+			
 		}
-		 
-		//int valor = visited_city(visitadas,ruta[ruta.size()-1].getNumero());
 		
-		
-		
-		
+		//cout << "vehiculos :"<< VEH<<endl;
+		//cout << "capacidad :" << ruta[ruta.size()-1].getCapacidad() << endl;
+	    //Visitadas.pop_back();
+	    //ruta.pop_back();
 	}
 	
-	
-	
-	
-
 }
-

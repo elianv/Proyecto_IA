@@ -26,6 +26,7 @@ class Dato{
 	 void setNumero(int);
 	 void setAnterior(int);
 	 void setCapacidad(int);
+
 	 
 	private:
 	 int distancia;
